@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:_2._1.AdivinaNumero"
         mc:Ignorable="d"
-        Title="Adivina número" Height="450" Width="800">
+        Title="Adivina número" Height="400" Width="700">
     <Grid>
         
     </Grid>
