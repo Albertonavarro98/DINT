@@ -7,27 +7,19 @@
         mc:Ignorable="d"
         Title="Adivina número" Height="200" Width="600">
     <Grid>
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition></ColumnDefinition>
-            <ColumnDefinition></ColumnDefinition>
-            <ColumnDefinition></ColumnDefinition>
-        </Grid.ColumnDefinitions>
-        <Grid.RowDefinitions>
-            <RowDefinition></RowDefinition>
-            <RowDefinition></RowDefinition>
-        </Grid.RowDefinitions>
-        <TextBlock Grid.Row="0" Grid.Column="0" HorizontalAlignment="Center" VerticalAlignment="Center"> ¿Qué número he pensado?</TextBlock>
-        <Grid  Grid.Row="0" Grid.Column="1" HorizontalAlignment="Left">
-            <TextBox Height="25" Width="150" x:Name="entrada">
+        
+        <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" Margin="45,72,404,81"> ¿Qué número he pensado?</TextBlock>
+        <Grid HorizontalAlignment="Left">
+            <TextBox Height="25" Width="150" x:Name="entrada" Margin="221,70,-221,74">
 
             </TextBox>
         </Grid>
-        <TextBlock x:Name="resultado" Grid.Row="0" Grid.Column="2" HorizontalAlignment="Center" VerticalAlignment="Center"></TextBlock>
-        <Grid HorizontalAlignment="Right"  Margin="20" VerticalAlignment="Center" Grid.Row="1" Grid.Column="0">
-            <Button x:Name="comprobar" Height="25" Width="100" Click="comprobar_Click">Comprobar</Button>
+        <TextBlock x:Name="resultado"  HorizontalAlignment="Center" VerticalAlignment="Center"></TextBlock>
+        <Grid HorizontalAlignment="Right"  Margin="0,72,58,72" VerticalAlignment="Center" >
+            <Button x:Name="comprobar" Height="25" Width="100" Click="comprobar_Click" Margin="-135,44,135,-44">Comprobar</Button>
         </Grid>
-        <Grid HorizontalAlignment="Left" Margin="20"  VerticalAlignment="Center" Grid.Row="1" Grid.Column="1">
-            <Button x:Name="reiniciar" Width="100">Reiniciarr</Button>
+        <Grid HorizontalAlignment="Left" Margin="20"  VerticalAlignment="Center" >
+            <Button x:Name="reiniciar" Width="100" Margin="135,46,-135,-46">Reiniciarr</Button>
         </Grid>
     </Grid>
 </Window>
