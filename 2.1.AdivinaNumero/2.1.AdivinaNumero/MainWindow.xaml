@@ -5,8 +5,29 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:_2._1.AdivinaNumero"
         mc:Ignorable="d"
-        Title="Adivina número" Height="400" Width="700">
+        Title="Adivina número" Height="200" Width="600">
     <Grid>
-        
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+        </Grid.RowDefinitions>
+        <TextBlock Grid.Row="0" Grid.Column="0" HorizontalAlignment="Center" VerticalAlignment="Center"> ¿Qué número he pensado?</TextBlock>
+        <Grid  Grid.Row="0" Grid.Column="1" HorizontalAlignment="Left">
+            <TextBox Height="25" Width="150" x:Name="entrada">
+
+            </TextBox>
+        </Grid>
+        <TextBlock x:Name="resultado" Grid.Row="0" Grid.Column="2" HorizontalAlignment="Center" VerticalAlignment="Center"></TextBlock>
+        <Grid HorizontalAlignment="Right"  Margin="20" VerticalAlignment="Center" Grid.Row="1" Grid.Column="0">
+            <Button x:Name="comprobar" Height="25" Width="100" Click="comprobar_Click">Comprobar</Button>
+        </Grid>
+        <Grid HorizontalAlignment="Left" Margin="20"  VerticalAlignment="Center" Grid.Row="1" Grid.Column="1">
+            <Button x:Name="reiniciar" Width="100">Reiniciarr</Button>
+        </Grid>
     </Grid>
 </Window>

@@ -20,9 +20,32 @@ namespace _2._1.AdivinaNumero
     /// </summary>
     public partial class MainWindow : Window
     {
+        public int numeroadivinar;
+        Random rand = new Random();
+
         public MainWindow()
         {
             InitializeComponent();
+            numeroadivinar = rand.Next(0,100);
+        }
+
+        private void comprobar_Click(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                if (int.Parse(entrada.Text) == numeroadivinar) { resultado.Text = "Enhorabuena, lo has adivinado"; }
+                else if (int.Parse(entrada.Text) < numeroadivinar) { resultado.Text = "Error, el númeor es mayor"; }
+                else if (int.Parse(entrada.Text) > numeroadivinar) { resultado.Text = "Error, el númnero es menor"; }
+            }
+            catch (Exception)
+            {
+                resultado.Text = "Error, formato no esperado";
+            }
+            
+        }
+        private void reiniciar_Click(object sender, RoutedEventArgs e)
+        {
+            numeroadivinar = rand.Next(0, 100);
         }
     }
 }
