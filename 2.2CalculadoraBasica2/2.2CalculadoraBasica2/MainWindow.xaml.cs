@@ -29,39 +29,39 @@ namespace _2._2CalculadoraBasica2
             try
             {
 
-                switch (char.Parse(operador.Text))
+                switch (char.Parse(operadorTextBox.Text))
                 {
                     case '+':
-                        resultado.Text = "" + (int.Parse(operando1.Text) + int.Parse(operando2.Text));
+                        resultadoTextBox.Text = "" + (int.Parse(operando1TextBox.Text) + int.Parse(operando2TextBox.Text));
                         break;
                     case '*':
-                        resultado.Text = "" + (int.Parse(operando1.Text) * int.Parse(operando2.Text));
+                        resultadoTextBox.Text = "" + (int.Parse(operando1TextBox.Text) * int.Parse(operando2TextBox.Text));
                         break;
                     case 'x':
-                        resultado.Text = "" + (int.Parse(operando1.Text) * int.Parse(operando2.Text));
+                        resultadoTextBox.Text = "" + (int.Parse(operando1TextBox.Text) * int.Parse(operando2TextBox.Text));
                         break;
                     default:
-                        resultado.Text = "Operador no esperado";
+                        resultadoTextBox.Text = "Operador no esperado";
                         break;
                 }
             }
             catch (Exception)
             {
-                resultado.Text = "Valor en un campo no esperado";
+                resultadoTextBox.Text = "Valor en un campo no esperado";
             }
         }
         private void Limpiar_Click(object sender, RoutedEventArgs e)
         {
-            resultado.Clear();
-            operando2.Clear();
-            operando1.Clear();
-            operador.Clear();
+            resultadoTextBox.Clear();
+            operando2TextBox.Clear();
+            operando1TextBox.Clear();
+            operadorTextBox.Clear();
         }
         private void Introducir_Operador(object sender, RoutedEventArgs e)
         {
             try 
             {
-                    if (char.Parse(operador.Text) == '+' || char.Parse(operador.Text) == '*' || char.Parse(operador.Text) == 'x') { calcular.IsEnabled = true; }
+                    if (char.Parse(operadorTextBox.Text) == '+' || char.Parse(operadorTextBox.Text) == '*' || char.Parse(operadorTextBox.Text) == 'x') { calcular.IsEnabled = true; }
                     else { calcular.IsEnabled = false; 
             } 
             } catch(Exception) { calcular.IsEnabled = false; }

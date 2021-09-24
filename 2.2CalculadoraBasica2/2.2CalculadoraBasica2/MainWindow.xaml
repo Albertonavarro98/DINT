@@ -5,16 +5,16 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:_2._2CalculadoraBasica2"
         mc:Ignorable="d"
-         Title="MainWindow" Height="300" Width="550">
+        Icon="" Title="Calculadora" Height="300" Width="550">
     <Grid>
         <Label Height="25" Width="125"  HorizontalAlignment="Center" VerticalAlignment="Center" Margin="10,42,407,202">Operando 1</Label>
-        <TextBox  Margin="135,42,282,202" x:Name="operando1"></TextBox>
+        <TextBox  Margin="135,42,282,202" x:Name="operando1TextBox"></TextBox>
         <Label  Height="25" Width="125"  HorizontalAlignment="Center" VerticalAlignment="Center" Margin="10,104,407,140">Operando 2</Label>
-        <TextBox  Margin="135,104,282,140" x:Name="operando2"></TextBox>
+        <TextBox  Margin="135,104,282,140" x:Name="operando2TextBox"></TextBox>
         <Label  Height="25" Width="125"  HorizontalAlignment="Center" VerticalAlignment="Center" RenderTransformOrigin="-0.2,-1.76" Margin="10,161,407,83">Operador</Label>
-        <TextBox TextChanged="Introducir_Operador" Margin="135,161,282,83" x:Name="operador"></TextBox>
+        <TextBox TextChanged="Introducir_Operador" Margin="135,161,282,83" x:Name="operadorTextBox"></TextBox>
         <Label  Height="25" Width="125" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="10,209,407,35">Resultado</Label>
-        <TextBox IsReadOnly="True" RenderTransformOrigin="1.728,-1.28" x:Name="resultado" Margin="135,209,282,35"></TextBox>
+        <TextBox IsReadOnly="True" RenderTransformOrigin="1.728,-1.28" x:Name="resultadoTextBox" Margin="135,209,282,35"></TextBox>
         <Button  Margin="364,43,78,201" x:Name="calcular" Click="Calcular_Click" IsEnabled="False" >Calcular</Button>
         <Button   Margin="364,104,78,140" x:Name="limpiar" Click="Limpiar_Click" >Limpiar</Button>
     </Grid>
