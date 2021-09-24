@@ -13,7 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace _2._2.CalculadoraBasica
+namespace CalculadoraBasica
 {
     /// <summary>
     /// Lógica de interacción para MainWindow.xaml
@@ -24,5 +24,14 @@ namespace _2._2.CalculadoraBasica
         {
             InitializeComponent();
         }
+        private void calcular_Click(object sender, RoutedEventArgs e)
+        {
+            switch (char.Parse(operador.Text))
+            { 
+            
+            } 
+            resultado.Text = int.Parse(operando1.Text);
+        }
+      
     }
 }

@@ -1,21 +1,21 @@
-﻿<Window x:Class="_2._2.CalculadoraBasica.MainWindow"
+﻿<Window x:Class="_2._2CalculadoraBasica2.MainWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:_2._2.CalculadoraBasica"
+        xmlns:local="clr-namespace:_2._2CalculadoraBasica2"
         mc:Ignorable="d"
-        Title="MainWindow" Height="300" Width="550">
+         Title="MainWindow" Height="300" Width="550">
     <Grid>
         <Label Height="25" Width="125"  HorizontalAlignment="Center" VerticalAlignment="Center" Margin="10,42,407,202">Operando 1</Label>
-        <TextBox Height="25" Width="125" Margin="135,42,282,202" x:Name="operando1"></TextBox>
+        <TextBox  Margin="135,42,282,202" x:Name="operando1"></TextBox>
         <Label  Height="25" Width="125"  HorizontalAlignment="Center" VerticalAlignment="Center" Margin="10,104,407,140">Operando 2</Label>
-        <TextBox Height="25" Width="125" Margin="135,104,282,140" x:Name="operando2"></TextBox>
+        <TextBox  Margin="135,104,282,140" x:Name="operando2"></TextBox>
         <Label  Height="25" Width="125"  HorizontalAlignment="Center" VerticalAlignment="Center" RenderTransformOrigin="-0.2,-1.76" Margin="10,161,407,83">Operador</Label>
-        <TextBox Height="25" Width="125" Margin="135,161,282,83" x:Name="operador"></TextBox>
+        <TextBox TextChanged="Introducir_Operador" Margin="135,161,282,83" x:Name="operador"></TextBox>
         <Label  Height="25" Width="125" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="10,209,407,35">Resultado</Label>
-        <TextBox  Height="25" Width="125" RenderTransformOrigin="1.728,-1.28" x:Name="resultado" Margin="135,209,282,35" IsEnabled="False"></TextBox>
-        <Button  Height="25" Width="100" Margin="364,43,78,201" x:Name="calcular"> Calcular</Button>
-        <Button  Height="25" Width="100" Margin="364,104,78,140" x:Name="limpiar"> Limpiar </Button>
+        <TextBox IsReadOnly="True" RenderTransformOrigin="1.728,-1.28" x:Name="resultado" Margin="135,209,282,35"></TextBox>
+        <Button  Margin="364,43,78,201" x:Name="calcular" Click="Calcular_Click" IsEnabled="False" >Calcular</Button>
+        <Button   Margin="364,104,78,140" x:Name="limpiar" Click="Limpiar_Click" >Limpiar</Button>
     </Grid>
 </Window>
