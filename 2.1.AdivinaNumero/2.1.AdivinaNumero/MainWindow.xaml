@@ -8,10 +8,10 @@
         Title="Adivina número" Height="200" Width="600">
     <Grid>
 
-        <TextBlock HorizontalAlignment="Center" Height="30" Width="150" VerticalAlignment="Center" Margin="45,44,397,95"> ¿Qué número he pensado?</TextBlock>
-        <TextBox Height="30" Width="150" x:Name="entrada" Margin="228,44,214,95"/>
-        <TextBlock x:Name="resultado" Height="30" Width="120" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="449,44,23,95"></TextBlock>
-        <Button x:Name="comprobar" Height="30" Width="100" Click="comprobar_Click" Margin="145,116,347,23">Comprobar</Button>
-        <Button x:Name="reiniciar" Width="100" Height="30" Margin="356,116,136,23" RenderTransformOrigin="-0.44,0.367">Reiniciarr</Button>
+        <TextBlock  Width="170" Margin="21,44,421,95"> ¿Qué número he pensado?</TextBlock>
+        <TextBox Height="30" Width="150" x:Name="entrada" Margin="190,44,252,95"/>
+        <TextBlock x:Name="resultado"  Width="195"  Margin="374,44,23,95"></TextBlock>
+        <Button x:Name="comprobar"  Width="100" Click="comprobar_Click" Margin="145,116,347,23">Comprobar</Button>
+        <Button x:Name="reiniciar" Width="100"  Margin="356,116,136,23" RenderTransformOrigin="-0.44,0.367">Reiniciar</Button>
     </Grid>
 </Window>
