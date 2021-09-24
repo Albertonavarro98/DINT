@@ -7,19 +7,11 @@
         mc:Ignorable="d"
         Title="Adivina número" Height="200" Width="600">
     <Grid>
-        
-        <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" Margin="45,72,404,81"> ¿Qué número he pensado?</TextBlock>
-        <Grid HorizontalAlignment="Left">
-            <TextBox Height="25" Width="150" x:Name="entrada" Margin="221,70,-221,74">
 
-            </TextBox>
-        </Grid>
-        <TextBlock x:Name="resultado"  HorizontalAlignment="Center" VerticalAlignment="Center"></TextBlock>
-        <Grid HorizontalAlignment="Right"  Margin="0,72,58,72" VerticalAlignment="Center" >
-            <Button x:Name="comprobar" Height="25" Width="100" Click="comprobar_Click" Margin="-135,44,135,-44">Comprobar</Button>
-        </Grid>
-        <Grid HorizontalAlignment="Left" Margin="20"  VerticalAlignment="Center" >
-            <Button x:Name="reiniciar" Width="100" Margin="135,46,-135,-46">Reiniciarr</Button>
-        </Grid>
+        <TextBlock HorizontalAlignment="Center" Height="30" Width="150" VerticalAlignment="Center" Margin="45,44,397,95"> ¿Qué número he pensado?</TextBlock>
+        <TextBox Height="30" Width="150" x:Name="entrada" Margin="228,44,214,95"/>
+        <TextBlock x:Name="resultado" Height="30" Width="120" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="449,44,23,95"></TextBlock>
+        <Button x:Name="comprobar" Height="30" Width="100" Click="comprobar_Click" Margin="145,116,347,23">Comprobar</Button>
+        <Button x:Name="reiniciar" Width="100" Height="30" Margin="356,116,136,23" RenderTransformOrigin="-0.44,0.367">Reiniciarr</Button>
     </Grid>
 </Window>
