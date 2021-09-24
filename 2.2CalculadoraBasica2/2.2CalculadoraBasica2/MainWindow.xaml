@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:_2._2CalculadoraBasica2"
         mc:Ignorable="d"
-        Icon="" Title="Calculadora" Height="300" Width="550">
+        Icon="128 (1).ico" Title="Calculadora" Height="300" Width="550">
     <Grid>
         <Label Height="25" Width="125"  HorizontalAlignment="Center" VerticalAlignment="Center" Margin="10,42,407,202">Operando 1</Label>
         <TextBox  Margin="135,42,282,202" x:Name="operando1TextBox"></TextBox>

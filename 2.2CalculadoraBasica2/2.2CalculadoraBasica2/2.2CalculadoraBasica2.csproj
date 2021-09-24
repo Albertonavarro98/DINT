@@ -97,5 +97,8 @@
   <ItemGroup>
     <Resource Include="128 %281%29.ico" />
   </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Properties\128 %281%29.ico" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
