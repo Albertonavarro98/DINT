@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:_3_Imagen"
         mc:Ignorable="d"
-        Title="imagen" Height="450" Width="800">
+        Title="imagen" Height="450" Width="800" Icon="128 (5).ico">
     <Grid>
         <Image x:Name="Imagen1" Height="375" Width="550" Margin="0,22,212,21" Source="episodioIV.jpg" Stretch="Fill"/>
         <Label FontWeight="Bold"  FontSize="25" Height="50" Margin="585,22,17,347">Opacidad</Label>
@@ -17,5 +17,6 @@
         <RadioButton GroupName="Ajuste" Checked="UniformeAjusteCheckBox_Checked"  x:Name="UniformeAjusteCheckBox"  Margin="623,217,-623,-217" >Uniforme</RadioButton>
         <RadioButton GroupName="Ajuste" Checked="RellenoUniformeAjusteCheckBox_Checked" x:Name="RellenoUniformeAjusteCheckBox"  Margin="623,239,-623,-239">Relleno Uniforme</RadioButton>
         <RadioButton GroupName="Ajuste" Checked="SinAjusteCheckBox_Checked" x:Name="SinAjusteCheckBox"  Margin="623,258,-623,-258">Sin Ajuste</RadioButton>
+        
     </Grid>
 </Window>
