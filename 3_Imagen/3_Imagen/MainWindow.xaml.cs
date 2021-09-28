@@ -26,39 +26,37 @@ namespace _3_Imagen
         }
 
 
-        private void OpacidadAltaRadioButton_Checked(object sender, RoutedEventArgs e)
-        {
-            Imagen1.Opacity = 1;
-        }
+        private void OpacidadAltaRadioButton_Checked(object sender, RoutedEventArgs e) => Imagen1.Opacity = 1;
+        
 
-        private void OpacidadMediaRadioButton_Checked(object sender, RoutedEventArgs e)
-        {
-            Imagen1.Opacity = 0.5;
-        }
+        private void OpacidadMediaRadioButton_Checked(object sender, RoutedEventArgs e) => Imagen1.Opacity = 0.5;
+        
 
-        private void OpacidadBajaRadioButton_Checked(object sender, RoutedEventArgs e)
-        {
-            Imagen1.Opacity = 0.10;
-        }
+        private void OpacidadBajaRadioButton_Checked(object sender, RoutedEventArgs e)=> Imagen1.Opacity = 0.10;
+        
 
         private void RellenoAjusteCheckBox_Checked(object sender, RoutedEventArgs e)
         {
-
+            Imagen1.Height = 375;
+            Imagen1.Width = 550;
         }
 
         private void UniformeAjusteCheckBox_Checked(object sender, RoutedEventArgs e)
         {
-
+            Imagen1.Height = 375;
+            Imagen1.Width = 250;
         }
 
         private void RellenoUniformeAjusteCheckBox_Checked(object sender, RoutedEventArgs e)
         {
-
+            Imagen1.Height = 750;
+            Imagen1.Width = 550;
         }
 
         private void SinAjusteCheckBox_Checked(object sender, RoutedEventArgs e)
         {
-
+            Imagen1.Height = 580;
+            Imagen1.Width = 874;
         }
     }
 }
