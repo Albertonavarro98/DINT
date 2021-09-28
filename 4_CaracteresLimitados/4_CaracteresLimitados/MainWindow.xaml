@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:_4_CaracteresLimitados"
         mc:Ignorable="d"
-        Title="Carácteres Limitados" Height="450" Width="800">
+        Title="Carácteres Limitados" Height="450" Width="800" Icon="128 (3).ico">
     <Grid>
         <Grid.Background>
             <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
@@ -16,6 +16,7 @@
         <TextBox Margin="35, 35, 35, 75" x:Name="EntradaTextBox" TextChanged="EntradaTextBox_TextChanged" AcceptsReturn="True">
             
         </TextBox>
-        <Label Name="CantidadCaracteresLabel" Width="200" Height="35" Margin="557,349,35,35" FontSize="20" HorizontalContentAlignment="Right" FontWeight="Bold" Foreground="#FF666666">0/140</Label> 
+        <Label Name="CantidadCaracteresLabel" Width="200" Height="35" Margin="557,349,35,35" FontSize="20" HorizontalContentAlignment="Right" FontWeight="Bold" Foreground="#FF666666">0/140</Label>
+        
     </Grid>
 </Window>
