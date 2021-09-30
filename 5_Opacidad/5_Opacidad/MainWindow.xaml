@@ -5,11 +5,12 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:_5_Opacidad"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="MainWindow" Height="450" Width="800" Icon="128 (6).ico">
     <Grid>
         <Image Margin="532,39,10,30" Source="episodioIV.jpg" Stretch="Fill" Height="350" Width="250" x:Name="img3" MouseEnter="img_MouseEnter" MouseLeave="img_MouseLeave"/>
         <Image Margin="277,39,265,30" Source="episodioV.jpg" Stretch="Fill" Height="350" Width="250" x:Name="img2" MouseEnter="img_MouseEnter" MouseLeave="img_MouseLeave"/>
         <Image Margin="10,39,532,30" Source="episodioVI.jpg" Stretch="Fill" Height="350" Width="250" x:Name="img1" MouseEnter="img_MouseEnter" MouseLeave="img_MouseLeave"/>
+        
 
     </Grid>
 </Window>
