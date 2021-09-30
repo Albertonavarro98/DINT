@@ -5,8 +5,11 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:_7_tamaño_texto"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="Tamaño Texto" Height="450" Width="800"  Icon="32.ico">
     <Grid>
-        
+        <TextBlock x:Name="TextoTextBlock" Text="Desarrollo de interfaces" FontSize="36" Margin="31,54,51,252" TextAlignment="Center"></TextBlock>
+        <RadioButton x:Name="PequeñoRadioButton" Checked="RadioButton_Checked" Content="Pequeño" GroupName="Tamaño" FontSize="15" Margin="78,219,586,165"></RadioButton>
+        <RadioButton IsChecked="True" x:Name="MedianoRadioButton" Checked="RadioButton_Checked" Content="Mediano" GroupName="Tamaño" FontSize="15" Margin="332,219,297,165"></RadioButton>
+        <RadioButton x:Name="GrandeRadioButton" Checked="RadioButton_Checked" Content="Grande" GroupName="Tamaño" FontSize="15" Margin="583,219,51,165"></RadioButton>
     </Grid>
 </Window>

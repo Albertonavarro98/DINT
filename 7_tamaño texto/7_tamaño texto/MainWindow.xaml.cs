@@ -24,5 +24,22 @@ namespace _7_tamaño_texto
         {
             InitializeComponent();
         }
+
+        private void RadioButton_Checked(object sender, RoutedEventArgs e)
+        {
+            switch ((sender as CheckBox).Tag.ToString())
+            {
+                case "GrandeRadioButton":
+                    TextoTextBlock.FontSize = 72;
+                    break;
+                case "PequeñoRadioButton":
+                    TextoTextBlock.FontSize = 36;
+                    break;
+                case "MedianoRadioButton":
+                    TextoTextBlock.FontSize = 48;
+                    break;
+            }
+
+        }
     }
 }
