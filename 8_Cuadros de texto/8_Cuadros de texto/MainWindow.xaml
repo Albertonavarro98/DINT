@@ -7,6 +7,19 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
     <Grid>
-        
+        <Label FontSize="14" Content="Nombre" Margin="67,48,518,336"></Label>
+        <TextBox KeyDown="NombreApellidoTextBox_KeyDown" Margin="67,88,518,295"  x:Name="NombreTextBox" Tag="NombreTextBox"></TextBox>
+        <Label Name="NombreLabel" Visibility="Hidden" FontSize="14" Content="Nombre cliente" Margin="295,89,290,295" RenderTransformOrigin="1.562,0.677" Foreground="#FF807575"></Label>
+
+        <Label FontSize="14" Content="Apellido" Margin="67,175,518,209"></Label>
+        <TextBox Margin="67,215,518,168"  x:Name="ApellidoTextBox"  Tag="ApellidoTextBox"></TextBox>
+        <Label Name="ApellidoLabel" FontSize="14" Content="Apellido del cliente" Margin="295,215,290,169" RenderTransformOrigin="1.562,0.677" Foreground="#FF807575"></Label>
+
+        <Label FontSize="14" Content="Edad" Margin="67,285,518,99"></Label>
+        <TextBox KeyDown="EdadTextBox_KeyDown" Margin="67,325,518,58"  x:Name="EdadTextBox"  Tag="EdadTextBox"></TextBox>
+        <Label FontSize="14" Content="Edad Incorrecta" Margin="295,325,290,59" RenderTransformOrigin="1.562,0.677" Foreground="#FFEA0F0F"></Label>
+
+
+
     </Grid>
 </Window>

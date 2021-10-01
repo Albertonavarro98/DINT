@@ -24,5 +24,29 @@ namespace _8_Cuadros_de_texto
         {
             InitializeComponent();
         }
+
+        
+        private void NombreApellidoTextBox_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.Key.ToString() == "f1" && (sender as RadioButton).Tag.ToString() == "NombreTextBox")
+            {
+                NombreLabel.Visibility = Visibility.Visible;
+            }
+
+            if (e.Key.ToString() == "f1" && (sender as RadioButton).Tag.ToString() == "ApellidoTextBox")
+            {
+                ApellidoLabel.Visibility = Visibility.Visible;
+            }
+        }
+
+        private void EdadTextBox_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.Key.ToString() == "f2")
+            {
+                if((EdadTextBox.Text).)
+                else { NombreLabel.Visibility = Visibility.Visible; }
+
+            }
+        }
     }
 }
