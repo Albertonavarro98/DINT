@@ -13,7 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace _7_tamaño_texto
+namespace _8_Cuadros_de_texto
 {
     /// <summary>
     /// Lógica de interacción para MainWindow.xaml
@@ -23,23 +23,6 @@ namespace _7_tamaño_texto
         public MainWindow()
         {
             InitializeComponent();
-        }
-
-        private void RadioButton_Checked(object sender, RoutedEventArgs e)
-        {
-            switch ((sender as RadioButton).Tag.ToString())
-            {
-                case "GrandeRadioButton":
-                    TextoTextBlock.FontSize = 72;
-                    break;
-                case "PequeñoRadioButton":
-                    TextoTextBlock.FontSize = 36;
-                    break;
-                case "MedianoRadioButton":
-                    TextoTextBlock.FontSize = 48;
-                    break;
-            }
-
         }
     }
 }

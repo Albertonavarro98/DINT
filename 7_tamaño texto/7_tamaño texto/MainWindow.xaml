@@ -8,8 +8,8 @@
         Title="Tamaño Texto" Height="450" Width="800"  Icon="32.ico">
     <Grid>
         <TextBlock x:Name="TextoTextBlock" Text="Desarrollo de interfaces" FontSize="36" Margin="31,54,51,252" TextAlignment="Center"></TextBlock>
-        <RadioButton x:Name="PequeñoRadioButton" Checked="RadioButton_Checked" Content="Pequeño" GroupName="Tamaño" FontSize="15" Margin="78,219,586,165"></RadioButton>
-        <RadioButton IsChecked="True" x:Name="MedianoRadioButton" Checked="RadioButton_Checked" Content="Mediano" GroupName="Tamaño" FontSize="15" Margin="332,219,297,165"></RadioButton>
-        <RadioButton x:Name="GrandeRadioButton" Checked="RadioButton_Checked" Content="Grande" GroupName="Tamaño" FontSize="15" Margin="583,219,51,165"></RadioButton>
+        <RadioButton  Tag="PequeñoRadioButton" x:Name="PequeñoRadioButton" Checked="RadioButton_Checked" Content="Pequeño" GroupName="Tamaño" FontSize="15" Margin="78,219,586,165"></RadioButton>
+        <RadioButton  Tag="MedianoRadioButton" IsChecked="True" x:Name="MedianoRadioButton" Checked="RadioButton_Checked" Content="Mediano" GroupName="Tamaño" FontSize="15" Margin="332,219,297,165"></RadioButton>
+        <RadioButton  Tag="GrandeRadioButton"   x:Name="GrandeRadioButton" Checked="RadioButton_Checked" Content="Grande" GroupName="Tamaño" FontSize="15" Margin="583,219,51,165"></RadioButton>
     </Grid>
 </Window>
