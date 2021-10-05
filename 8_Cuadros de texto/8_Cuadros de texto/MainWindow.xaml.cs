@@ -41,11 +41,11 @@ namespace _8_Cuadros_de_texto
 
         private void EdadTextBox_KeyDown(object sender, KeyEventArgs e)
         {
+            int numero;
             if (e.Key.ToString() == "f2")
             {
-                if((EdadTextBox.Text).)
+                if (int.TryParse(EdadTextBox.Text, out numero)) { }
                 else { NombreLabel.Visibility = Visibility.Visible; }
-
             }
         }
     }
