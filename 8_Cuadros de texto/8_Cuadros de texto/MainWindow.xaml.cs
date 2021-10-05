@@ -28,15 +28,8 @@ namespace _8_Cuadros_de_texto
         
         private void NATextBox_KeyDown(object sender, KeyEventArgs e)
         {
-            if (e.Key == Key.F1 && (sender as TextBox).Tag.ToString() == "NombreTextBox")
-            {
-                NombreLabel.Visibility = Visibility.Visible;
-            }
-
-            if (e.Key == Key.F1 && (sender as TextBox).Tag.ToString() == "ApellidoTextBox")
-            {
-                ApellidoLabel.Visibility = Visibility.Visible;
-            }
+            if (e.Key == Key.F1 && (sender as TextBox).Tag.ToString() == "NombreTextBox"){NombreLabel.Visibility = Visibility.Visible; }
+            if (e.Key == Key.F1 && (sender as TextBox).Tag.ToString() == "ApellidoTextBox"){ApellidoLabel.Visibility = Visibility.Visible;}
         }
 
         private void EdadTextBox_KeyDown(object sender, KeyEventArgs e)
