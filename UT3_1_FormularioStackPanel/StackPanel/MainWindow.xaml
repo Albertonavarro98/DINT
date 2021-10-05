@@ -1,0 +1,45 @@
+﻿<Window x:Class="StackPanel.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:StackPanel"
+        mc:Ignorable="d"
+        Title="Formulario" Height="450" Width="800">
+    <StackPanel Orientation="Vertical">
+        <StackPanel Margin="10" Height="75">
+            <StackPanel.Background>
+                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                    <GradientStop Color="#FF30AA67" Offset="0"/>
+                    <GradientStop Color="#FFDCFFE2" Offset="1"/>
+                </LinearGradientBrush>
+            </StackPanel.Background>
+            <Label FontSize="16" FontWeight="Bold" >Nombre</Label>
+            <TextBox></TextBox>
+        </StackPanel>
+        <StackPanel Margin="10" Height="75">
+            <StackPanel.Background>
+                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                    <GradientStop Color="#FF307EAA" Offset="0"/>
+                    <GradientStop Color="#FFB2CBD6" Offset="1"/>
+                </LinearGradientBrush>
+            </StackPanel.Background>
+            <Label FontSize="16" FontWeight="Bold" >Dirección</Label>
+            <TextBox></TextBox>
+        </StackPanel>
+        <StackPanel Margin="10" Height="75">
+            <StackPanel.Background>
+                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                    <GradientStop Color="#FF923CF9" Offset="0"/>
+                    <GradientStop Color="#FFE8E6EA" Offset="1"/>
+                </LinearGradientBrush>
+            </StackPanel.Background>
+            <Label FontSize="16" FontWeight="Bold" >Correo</Label>
+            <TextBox></TextBox>
+        </StackPanel>
+        <StackPanel Width="300" Margin="10" FlowDirection="RightToLeft"  Orientation="Horizontal" HorizontalAlignment="Right">
+            <Button Margin="10" Width="100">Aceptar</Button>
+            <Button Margin="10" Width="100">Cancelar</Button>
+        </StackPanel>
+    </StackPanel>
+</Window>
