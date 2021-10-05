@@ -26,14 +26,14 @@ namespace _8_Cuadros_de_texto
         }
 
         
-        private void NombreApellidoTextBox_KeyDown(object sender, KeyEventArgs e)
+        private void NATextBox_KeyDown(object sender, KeyEventArgs e)
         {
-            if (e.Key.ToString() == "f1" && (sender as RadioButton).Tag.ToString() == "NombreTextBox")
+            if (e.Key == Key.F1 && (sender as TextBox).Tag.ToString() == "NombreTextBox")
             {
                 NombreLabel.Visibility = Visibility.Visible;
             }
 
-            if (e.Key.ToString() == "f1" && (sender as RadioButton).Tag.ToString() == "ApellidoTextBox")
+            if (e.Key == Key.F1 && (sender as TextBox).Tag.ToString() == "ApellidoTextBox")
             {
                 ApellidoLabel.Visibility = Visibility.Visible;
             }
@@ -42,10 +42,10 @@ namespace _8_Cuadros_de_texto
         private void EdadTextBox_KeyDown(object sender, KeyEventArgs e)
         {
             int numero;
-            if (e.Key.ToString() == "f2")
+            if (e.Key == Key.F2)
             {
-                if (int.TryParse(EdadTextBox.Text, out numero)) { }
-                else { NombreLabel.Visibility = Visibility.Visible; }
+                if (int.TryParse(EdadTextBox.Text, out numero)) { ErrorEdadLabel.Visibility = Visibility.Hidden; }
+                else { ErrorEdadLabel.Visibility = Visibility.Visible; }
             }
         }
     }
