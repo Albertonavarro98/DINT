@@ -106,5 +106,8 @@
     <Resource Include="img\99_heat.png" />
     <Resource Include="img\9_lakers.png" />
   </ItemGroup>
+  <ItemGroup>
+    <Resource Include="128 %282%29.ico" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

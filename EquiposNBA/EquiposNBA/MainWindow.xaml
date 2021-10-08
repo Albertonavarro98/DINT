@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:EquiposNBA"
         mc:Ignorable="d"
-        Title="EquiposNBA" Height="450" Width="800">
+        Title="EquiposNBA" Height="450" Width="800" Icon="128 (2).ico">
     
     <StackPanel>
         <Border BorderBrush="Black" CornerRadius="3" BorderThickness="3" Margin="10">
@@ -16,7 +16,7 @@
                     <GradientStop Color="#FFF0E72E" Offset="1"/>
                 </LinearGradientBrush>
             </StackPanel.Background>
-            <TextBlock HorizontalAlignment="Center" FontSize="30" FontWeight="Bold">Los Angeles Lakers</TextBlock>
+            <TextBlock TextWrapping="Wrap" HorizontalAlignment="Center" FontSize="30" FontWeight="Bold" TextAlignment="Justify">Los Angeles Lakers</TextBlock>
                 <WrapPanel HorizontalAlignment="Center" VerticalAlignment="Bottom">
                 <Image Source="/img/3_lakers.png" Width="150" Height="110"/>
                 <Image Source="/img/23_lakers.png"  Width="150" Height="110" />
@@ -34,13 +34,13 @@
                         <GradientStop Color="#FF703636" Offset="1"/>
                     </LinearGradientBrush>
                 </StackPanel.Background>
-                <TextBlock HorizontalAlignment="Center" FontSize="30" FontWeight="Bold" Foreground="White">Los Angeles Lakers</TextBlock>
+                <TextBlock TextWrapping="Wrap" HorizontalAlignment="Center" FontSize="30" FontWeight="Bold" Foreground="White" TextAlignment="Justify">Los Angeles Lakers</TextBlock>
                 <WrapPanel HorizontalAlignment="Center" VerticalAlignment="Bottom">
-                    <Image Source="/img/3_lakers.png" Width="150" Height="110"/>
-                    <Image Source="/img/23_lakers.png"  Width="150" Height="110" />
-                    <Image Source="/img/39_lakers.png"  Width="150" Height="110" />
-                    <Image Source="/img/9_lakers.png"  Width="150" Height="110"/>
-                    <Image Source="/img/14_lakers.png"  Width="150" Height="110"/>
+                    <Image Source="/img/13_heat.png" Width="150" Height="110"/>
+                    <Image Source="/img/7_heat.png"  Width="150" Height="110" />
+                    <Image  Source="/img/14_heat.png" Width="150" Height="110" />
+                    <Image Source="/img/22_heat.png"  Width="150" Height="110"/>
+                    <Image Source="/img/99_heat.png"  Width="150" Height="110"/>
                 </WrapPanel>
             </StackPanel>
         </Border>
