@@ -7,15 +7,15 @@
         mc:Ignorable="d"
         Title="Mosaico" Height="700" Width="700" MinHeight="475" MinWidth="450" Icon="128 (3).ico">
     <DockPanel>
-        <Grid DockPanel.Dock="Top" Height="100" Background="Pink"></Grid>
-        <Grid DockPanel.Dock="Left" Width="100" Background="Pink"></Grid>
-        <Grid DockPanel.Dock="Right" Width="100" Background="Aqua"></Grid>
-        <Grid DockPanel.Dock="Bottom" Height="100" Background="Aqua"></Grid>
-        <Grid DockPanel.Dock="Bottom" Height="100" Background="PaleGreen"></Grid>
-        <Grid DockPanel.Dock="Left" Width="100" Background="PaleGreen"></Grid>
-        <Grid DockPanel.Dock="Top" Height="100" Background="PaleVioletRed"></Grid>
-        <Grid DockPanel.Dock="Right" Width="100" Background="PaleVioletRed"></Grid>
-        <Grid Background="Violet" MinHeight="25" MinWidth="25">
-        </Grid>
+        <TextBlock DockPanel.Dock="Top" Height="100" Background="Pink"></TextBlock>
+        <TextBlock DockPanel.Dock="Left" Width="100" Background="Pink"></TextBlock>
+        <TextBlock DockPanel.Dock="Right" Width="100" Background="Aqua"></TextBlock>
+        <TextBlock DockPanel.Dock="Bottom" Height="100" Background="Aqua"></TextBlock>
+        <TextBlock DockPanel.Dock="Bottom" Height="100" Background="PaleGreen"></TextBlock>
+        <TextBlock DockPanel.Dock="Left" Width="100" Background="PaleGreen"></TextBlock>
+        <TextBlock DockPanel.Dock="Top" Height="100" Background="PaleVioletRed"></TextBlock>
+        <TextBlock DockPanel.Dock="Right" Width="100" Background="PaleVioletRed"></TextBlock>
+        <TextBlock Background="Violet" MinHeight="25" MinWidth="25">
+        </TextBlock>
     </DockPanel>
 </Window>
