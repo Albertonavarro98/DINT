@@ -1,0 +1,31 @@
+﻿<Window x:Class="_6_Las4estaciones.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:_6_Las4estaciones"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800">
+    <UniformGrid Rows="2" Columns="3">
+        <UniformGrid.Background>
+            <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                <GradientStop Color="#FF5BDADA" Offset="0"/>
+                <GradientStop Color="#FF203A3A" Offset="1"/>
+            </LinearGradientBrush>
+        </UniformGrid.Background>
+        <Label VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="35" FontFamily="SimSun" FontWeight="Bold" FontStyle="Italic" Foreground="#FF086124">LAS 4 ESTACIONES</Label>
+
+        <ScrollViewer VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Auto">
+            <Image Source="otoño.jpg" Stretch="Fill"/>
+        </ScrollViewer>
+        <ScrollViewer VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Auto">
+            <Image Source="invierno.jpg" Stretch="Fill"/>
+        </ScrollViewer>
+        <ScrollViewer VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Auto">
+            <Image Source="primavera.jpg" Stretch="Fill"/>
+        </ScrollViewer>
+        <ScrollViewer  VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Auto">
+            <Image  Source="verano.jpg" Stretch="Fill"/>
+        </ScrollViewer>
+    </UniformGrid>
+</Window>
