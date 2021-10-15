@@ -1,0 +1,66 @@
+﻿<Window x:Class="_7_Formularios.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:_7_Formularios"
+        mc:Ignorable="d"
+        Title="MainWindow" MinHeight="550" MinWidth="850" Height="550" Width="850">
+    <DockPanel>
+        <Label DockPanel.Dock="Top" FontSize="40" HorizontalContentAlignment="Center" FontWeight="Bold">
+            Formulario
+        </Label>
+        <DockPanel DockPanel.Dock="Bottom">
+            <Label DockPanel.Dock="Left" FontSize="20" FontStyle="Italic">Alberto Navarro</Label>
+            <Button DockPanel.Dock="Right" Margin="5" Width="100">Cancelar</Button>
+            <Button DockPanel.Dock="Right" Margin="5"  Width="100">Aceptar</Button>
+            <Label></Label>
+        </DockPanel>
+        <Image DockPanel.Dock="Right" Source="foto.jpg" Margin="10"/>
+        <Border BorderBrush="Black" BorderThickness="1" CornerRadius="10" DockPanel.Dock="Top" Background="#FF36BDF0" Margin="5">
+            <Grid Margin="5">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="2*"></ColumnDefinition>
+                    <ColumnDefinition Width="7*"></ColumnDefinition>
+                    <ColumnDefinition Width="*"></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition></RowDefinition>
+                    <RowDefinition></RowDefinition>
+                    <RowDefinition></RowDefinition>
+                </Grid.RowDefinitions>
+                <Label Grid.Row="0" Grid.Column="0">Nombre</Label>
+                <TextBox Margin="5" Grid.Row="0" Grid.Column="1"></TextBox>
+                <Image Grid.Row="0" Grid.Column="3"  Source="info.png" Height="20" Width="20"></Image>
+                <Label Grid.Row="1" Grid.Column="0">Edad</Label>
+                <TextBox  Margin="5" Grid.Row="1" Grid.Column="1"></TextBox>
+                <Image Grid.Row="1" Grid.Column="3"  Source="info.png" Height="20" Width="20"></Image>
+                <Label Grid.Row="2" Grid.Column="0">Dirección</Label>
+                <TextBox Margin="5" Grid.Row="2" Grid.Column="1"></TextBox>
+                <Image Grid.Row="2" Grid.Column="3"  Source="info.png" Height="20" Width="20"></Image>
+            </Grid>
+        </Border>
+        <Border BorderBrush="Black" BorderThickness="1" CornerRadius="10" DockPanel.Dock="Top" Margin="5">
+            <StackPanel Orientation="Horizontal">
+                <GroupBox Header="Aficiones" Margin="15" Width="150">
+                    <StackPanel>
+                        <CheckBox Margin="2.5">Hacer deporte</CheckBox>
+                        <CheckBox Margin="2.5">Viajar</CheckBox>
+                        <CheckBox Margin="2.5">Ver Series</CheckBox>
+                        <CheckBox Margin="2.5">Leer Comics</CheckBox>
+                    </StackPanel>
+                </GroupBox>
+                <GroupBox Header="Estado Civil" Margin="15" Width="150">
+                    <StackPanel>
+                        <CheckBox Margin="2.5">Casado</CheckBox>
+                        <CheckBox Margin="2.5">Soltero</CheckBox>
+                        <CheckBox Margin="2.5">Divorciado</CheckBox>
+                        <CheckBox Margin="2.5">Viudo</CheckBox>
+                    </StackPanel>
+                </GroupBox>
+            </StackPanel>
+        </Border>
+        <Label></Label>
+
+    </DockPanel>
+</Window>
