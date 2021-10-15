@@ -40,7 +40,7 @@
                 <Image Grid.Row="2" Grid.Column="3"  Source="info.png" Height="20" Width="20"></Image>
             </Grid>
         </Border>
-        <Border BorderBrush="Black" BorderThickness="3"  CornerRadius="10" DockPanel.Dock="Top" Margin="5">
+        <Border BorderBrush="Black" BorderThickness="3"  CornerRadius="10" DockPanel.Dock="Top" Margin="5" Background="#FFE2E0B7">
             <StackPanel Orientation="Horizontal">
                 <GroupBox Header="Aficiones" Margin="15" Width="150">
                     <StackPanel>
