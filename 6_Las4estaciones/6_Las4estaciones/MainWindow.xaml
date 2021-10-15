@@ -5,16 +5,15 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:_6_Las4estaciones"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
-    <UniformGrid Rows="2" Columns="3">
+        Title="Las cuatro estaciones" Height="450" Width="800" Icon="96 (1).ico">
+    <UniformGrid Rows="3" Columns="2" FirstColumn="1">
         <UniformGrid.Background>
             <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
                 <GradientStop Color="#FF5BDADA" Offset="0"/>
                 <GradientStop Color="#FF203A3A" Offset="1"/>
             </LinearGradientBrush>
         </UniformGrid.Background>
-        <Label VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="35" FontFamily="SimSun" FontWeight="Bold" FontStyle="Italic" Foreground="#FF086124">LAS 4 ESTACIONES</Label>
-
+        <Label VerticalAlignment="Center" HorizontalContentAlignment="Center" HorizontalAlignment="Center" FontSize="35" FontFamily="SimSun" FontWeight="Bold" FontStyle="Italic" Foreground="#FF086124" Width="800" Margin="-396,45,0,45">LAS 4 ESTACIONES</Label>
         <ScrollViewer VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Auto">
             <Image Source="otoño.jpg" Stretch="Fill"/>
         </ScrollViewer>
