@@ -6,16 +6,29 @@
         xmlns:local="clr-namespace:Mosaico"
         mc:Ignorable="d"
         Title="Mosaico" Height="700" Width="700" MinHeight="475" MinWidth="450" Icon="128 (3).ico">
+    <Window.Resources>
+        <Style TargetType="{x:Type TextBlock}" x:Key="fragmentoH">
+            <Setter Property="Height" Value="100"></Setter>
+        </Style>
+        <Style TargetType="{x:Type TextBlock}" x:Key="fragmentoV">
+            <Setter Property="Width" Value="100"></Setter>
+        </Style>
+        <Style TargetType="{x:Type TextBlock}" x:Key="final">
+            <Setter Property="MinWidth" Value="25"></Setter>
+            <Setter Property="MinHeight" Value="25"></Setter>
+            <Setter Property="Background" Value="Violet"></Setter>
+        </Style>
+    </Window.Resources>
     <DockPanel>
-        <TextBlock DockPanel.Dock="Top" Height="100" Background="Pink"></TextBlock>
-        <TextBlock DockPanel.Dock="Left" Width="100" Background="Pink"></TextBlock>
-        <TextBlock DockPanel.Dock="Right" Width="100" Background="Aqua"></TextBlock>
-        <TextBlock DockPanel.Dock="Bottom" Height="100" Background="Aqua"></TextBlock>
-        <TextBlock DockPanel.Dock="Bottom" Height="100" Background="PaleGreen"></TextBlock>
-        <TextBlock DockPanel.Dock="Left" Width="100" Background="PaleGreen"></TextBlock>
-        <TextBlock DockPanel.Dock="Top" Height="100" Background="PaleVioletRed"></TextBlock>
-        <TextBlock DockPanel.Dock="Right" Width="100" Background="PaleVioletRed"></TextBlock>
-        <TextBlock Background="Violet" MinHeight="25" MinWidth="25">
+        <TextBlock DockPanel.Dock="Top" Style="{StaticResource fragmentoH}" Background="Pink"></TextBlock>
+        <TextBlock DockPanel.Dock="Left" Style="{StaticResource fragmentoV}" Background="Pink"></TextBlock>
+        <TextBlock DockPanel.Dock="Right" Style="{StaticResource fragmentoV}" Background="Aqua"></TextBlock>
+        <TextBlock DockPanel.Dock="Bottom" Style="{StaticResource fragmentoH}" Background="Aqua"></TextBlock>
+        <TextBlock DockPanel.Dock="Bottom" Style="{StaticResource fragmentoH}" Background="PaleGreen"></TextBlock>
+        <TextBlock DockPanel.Dock="Left" Style="{StaticResource fragmentoV}" Background="PaleGreen"></TextBlock>
+        <TextBlock DockPanel.Dock="Top" Style="{StaticResource fragmentoH}" Background="PaleVioletRed"></TextBlock>
+        <TextBlock DockPanel.Dock="Right" Style="{StaticResource fragmentoV}" Background="PaleVioletRed"></TextBlock>
+        <TextBlock  Style="{StaticResource final}">
         </TextBlock>
     </DockPanel>
 </Window>
