@@ -6,6 +6,12 @@
         xmlns:local="clr-namespace:_5.Calculadora"
         mc:Ignorable="d"
         Title="Calculadora" Height="550" Width="400" MinHeight="350" MinWidth="250" Icon="96.ico">
+    <Window.Resources>
+        <Style TargetType="{x:Type Button}" x:Key="num">
+            <EventSetter Event="Click" Handler="Button_Click"></EventSetter>
+            <Setter Property="Margin" Value="5"></Setter>
+        </Style>
+    </Window.Resources>
     <Grid>
             <Grid.ColumnDefinitions>
                 <ColumnDefinition></ColumnDefinition>
@@ -25,52 +31,52 @@
                     <TextBlock x:Name="SalidaTextBlock"> </TextBlock>
                 </Viewbox>
             </Border>
-        <Button Grid.Row="2"  Click="Button_Click" Grid.Column="0" Margin="5" Tag="1">
+        <Button Grid.Row="2" Style="{StaticResource num}" Grid.Column="0" Tag="1">
                 <Viewbox>
                     <Label>1</Label>
                 </Viewbox>
             </Button>
-        <Button Grid.Row="2" Click="Button_Click"  Grid.Column="1" Margin="5" Tag="2">
+        <Button Grid.Row="2" Grid.Column="1" Style="{StaticResource num}" Tag="2">
                 <Viewbox>
                     <Label>2</Label>
                 </Viewbox>
             </Button>
-        <Button Grid.Row="2" Click="Button_Click"  Grid.Column="2" Margin="5" Tag="3">
+        <Button Grid.Row="2" Style="{StaticResource num}"  Grid.Column="2" Tag="3">
                 <Viewbox>
                     <Label>3</Label>
                 </Viewbox>
             </Button>
-            <Button Grid.Row="3" Grid.Column="0" Margin="5" Tag="4">
+        <Button Grid.Row="3" Grid.Column="0"  Style="{StaticResource num}" Tag="4">
                 <Viewbox>
                     <Label>4</Label>
                 </Viewbox>
             </Button>
-        <Button Grid.Row="3" Click="Button_Click"  Grid.Column="1" Margin="5" Tag="5">
+        <Button Grid.Row="3" Grid.Column="1"  Style="{StaticResource num}" Tag="5">
                 <Viewbox>
                     <Label>5</Label>
                 </Viewbox>
             </Button>
-        <Button Grid.Row="3" Click="Button_Click"  Grid.Column="2" Margin="5" Tag="6">
+        <Button Grid.Row="3" Grid.Column="2"  Style="{StaticResource num}" Tag="6">
                 <Viewbox>
                     <Label>6</Label>
                 </Viewbox>
             </Button>
-        <Button Grid.Row="4" Click="Button_Click"  Grid.Column="0" Margin="5" Tag="7">
+        <Button Grid.Row="4" Grid.Column="0" Style="{StaticResource num}" Tag="7">
                 <Viewbox>
                     <Label>7</Label>
                 </Viewbox>
             </Button>
-        <Button Grid.Row="4" Click="Button_Click"  Grid.Column="1" Margin="5" Tag="8">
+        <Button Grid.Row="4" Grid.Column="1"  Style="{StaticResource num}" Tag="8">
                 <Viewbox>
                     <Label>8</Label>
                 </Viewbox>
             </Button>
-        <Button Grid.Row="4" Grid.Column="2" Click="Button_Click"  Margin="5" Tag="9">
+        <Button Grid.Row="4" Grid.Column="2" Style="{StaticResource num}" Tag="9">
                 <Viewbox>
                     <Label>9</Label>
                 </Viewbox>
             </Button>
-        <Button Grid.Row="5" Grid.Column="0" Grid.ColumnSpan="3" Margin="5" Click="Button_Click" Tag="0">
+        <Button Grid.Row="5" Grid.Column="0" Grid.ColumnSpan="3"  Style="{StaticResource num}" Tag="0">
             <Viewbox>
                 <Label>0</Label>
             </Viewbox>
