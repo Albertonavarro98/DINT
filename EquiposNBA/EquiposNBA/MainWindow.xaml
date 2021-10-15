@@ -6,9 +6,31 @@
         xmlns:local="clr-namespace:EquiposNBA"
         mc:Ignorable="d"
         Title="EquiposNBA" Height="450" Width="800" Icon="128 (2).ico">
-    
+    <Window.Resources>
+        <Style TargetType="{x:Type Image}">
+            <Setter Property="Width" Value="150"></Setter>
+            <Setter Property="Height" Value="110"></Setter>
+        </Style>
+        <Style TargetType="{x:Type Border}">
+            <Setter Property="BorderBrush" Value="Black"></Setter>
+            <Setter Property="CornerRadius" Value="3"></Setter>
+            <Setter Property="BorderThickness" Value="3"></Setter>
+            <Setter Property="Margin" Value="10"></Setter>
+        </Style>
+        <Style TargetType="{x:Type TextBlock}">
+            <Setter Property="TextWrapping" Value="Wrap"></Setter>
+            <Setter Property="HorizontalAlignment" Value="Center"></Setter>
+            <Setter Property="FontSize" Value="30"></Setter>
+            <Setter Property="FontWeight" Value="Bold"></Setter>
+        </Style>
+        <Style TargetType="{x:Type WrapPanel}">
+            <Setter Property="HorizontalAlignment" Value="Center"></Setter>
+            <Setter Property="VerticalAlignment" Value="Bottom"></Setter>
+        </Style>
+    </Window.Resources>
+  
     <StackPanel>
-        <Border BorderBrush="Black" CornerRadius="3" BorderThickness="3" Margin="10">
+        <Border>
         <StackPanel>
             <StackPanel.Background>
                 <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
@@ -16,17 +38,18 @@
                     <GradientStop Color="#FFF0E72E" Offset="1"/>
                 </LinearGradientBrush>
             </StackPanel.Background>
-            <TextBlock TextWrapping="Wrap" HorizontalAlignment="Center" FontSize="30" FontWeight="Bold" TextAlignment="Justify">Los Angeles Lakers</TextBlock>
-                <WrapPanel HorizontalAlignment="Center" VerticalAlignment="Bottom">
-                <Image Source="/img/3_lakers.png" Width="150" Height="110"/>
-                <Image Source="/img/23_lakers.png"  Width="150" Height="110" />
-                <Image Source="/img/39_lakers.png"  Width="150" Height="110" />
-                <Image Source="/img/9_lakers.png"  Width="150" Height="110"/>
-                <Image Source="/img/14_lakers.png"  Width="150" Height="110"/>
+            <TextBlock>Los Angeles Lakers</TextBlock>
+                <WrapPanel>
+                <Image Source="/img/3_lakers.png"/>
+                <Image Source="/img/23_lakers.png" />
+                <Image Source="/img/39_lakers.png" />
+                <Image Source="/img/9_lakers.png"/>
+                <Image Source="/img/14_lakers.png"/>
             </WrapPanel>
+            
         </StackPanel>
         </Border>
-        <Border BorderBrush="Black" CornerRadius="3" BorderThickness="3" Margin="10">
+        <Border>
             <StackPanel >
                 <StackPanel.Background>
                     <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
@@ -34,13 +57,13 @@
                         <GradientStop Color="#FF703636" Offset="1"/>
                     </LinearGradientBrush>
                 </StackPanel.Background>
-                <TextBlock TextWrapping="Wrap" HorizontalAlignment="Center" FontSize="30" FontWeight="Bold" Foreground="White" TextAlignment="Justify">Los Angeles Lakers</TextBlock>
-                <WrapPanel HorizontalAlignment="Center" VerticalAlignment="Bottom">
-                    <Image Source="/img/13_heat.png" Width="150" Height="110"/>
-                    <Image Source="/img/7_heat.png"  Width="150" Height="110" />
-                    <Image  Source="/img/14_heat.png" Width="150" Height="110" />
-                    <Image Source="/img/22_heat.png"  Width="150" Height="110"/>
-                    <Image Source="/img/99_heat.png"  Width="150" Height="110"/>
+                <TextBlock Foreground="White">Los Angeles Lakers</TextBlock>
+                <WrapPanel>
+                    <Image Source="/img/13_heat.png"/>
+                    <Image Source="/img/7_heat.png"/>
+                    <Image  Source="/img/14_heat.png"/>
+                    <Image Source="/img/22_heat.png"/>
+                    <Image Source="/img/99_heat.png"/>
                 </WrapPanel>
             </StackPanel>
         </Border>
