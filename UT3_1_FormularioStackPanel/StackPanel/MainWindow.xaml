@@ -6,40 +6,60 @@
         xmlns:local="clr-namespace:StackPanel"
         mc:Ignorable="d"
         Title="Formulario" Height="450" Width="800">
+    <Window.Resources>
+        <Style TargetType="{x:Type StackPanel}">
+            <Setter Property="Orientation" Value="Vertical"></Setter>
+        </Style>
+        <Style TargetType="{x:Type StackPanel}" x:Key="contenedor">
+            <Setter Property="Margin" Value="10"></Setter>
+            <Setter Property="Height" Value="75"></Setter>
+        </Style>
+        <Style TargetType="{x:Type Label}">
+            <Setter Property="FontSize" Value="16"></Setter>
+            <Setter Property="FontWeight" Value="Bold"></Setter>
+        </Style>
+        <Style TargetType="{x:Type TextBox}">
+            <Setter Property="Margin" Value="10 0 10 0"></Setter>
+        </Style>
+        <Style TargetType="{x:Type Button}">
+            <Setter Property="Margin" Value="10"></Setter>
+            <Setter Property="Width" Value="100"></Setter>
+        </Style>
+    </Window.Resources>
     <StackPanel Orientation="Vertical">
-        <StackPanel Margin="10" Height="75">
+        <StackPanel Style="{StaticResource contenedor}">
             <StackPanel.Background>
                 <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
                     <GradientStop Color="#FF30AA67" Offset="0"/>
                     <GradientStop Color="#FFDCFFE2" Offset="1"/>
                 </LinearGradientBrush>
             </StackPanel.Background>
-            <Label FontSize="16" FontWeight="Bold" >Nombre</Label>
-            <TextBox Margin="10 0 10 0"></TextBox>
+            <Label>Nombre</Label>
+            <TextBox></TextBox>
         </StackPanel>
-        <StackPanel Margin="10" Height="75">
+        <StackPanel Style="{StaticResource contenedor}">
             <StackPanel.Background>
                 <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
                     <GradientStop Color="#FF307EAA"  Offset="0"/>
                     <GradientStop Color="#FFB2CBD6" Offset="1"/>
                 </LinearGradientBrush>
             </StackPanel.Background>
-            <Label FontSize="16" FontWeight="Bold" >Dirección</Label>
-            <TextBox Margin="10 0 10 0"></TextBox>
+            <Label>Dirección</Label>
+            <TextBox></TextBox>
         </StackPanel>
-        <StackPanel Margin="10" Height="75">
+        <StackPanel  Style="{StaticResource contenedor}">
             <StackPanel.Background>
                 <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
                     <GradientStop Color="#FF923CF9" Offset="0"/>
                     <GradientStop Color="#FFE8E6EA" Offset="1"/>
                 </LinearGradientBrush>
             </StackPanel.Background>
-            <Label FontSize="16" FontWeight="Bold" >Correo</Label>
-            <TextBox Margin="10 0 10 0"  Width="500" HorizontalAlignment="Left" ></TextBox>
+            <Label>Correo</Label>
+            <TextBox Width="500" HorizontalAlignment="Left" ></TextBox>
         </StackPanel>
-        <StackPanel Width="300" Margin="10" FlowDirection="RightToLeft"  Orientation="Horizontal" HorizontalAlignment="Right">
-            <Button Margin="10" Width="100">Aceptar</Button>
-            <Button Margin="10" Width="100">Cancelar</Button>
+        <StackPanel Width="300" FlowDirection="RightToLeft"  Orientation="Horizontal" HorizontalAlignment="Right">
+            <Button>Aceptar</Button>
+            <Button>Cancelar</Button>
         </StackPanel>
     </StackPanel>
 </Window>
