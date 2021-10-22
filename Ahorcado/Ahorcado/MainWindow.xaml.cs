@@ -29,6 +29,7 @@ namespace Ahorcado
         bool dificultadseleccionada;
         double dificultad;
         char error;
+        int seleccion;
         Char[] letras = new Char[27];
         public String[] palabras = { "piedra", "casa", "agua", "ventana", "ordenador", "raton", "queso", "torre", "lunes", "martes", "miercoles", "jueves", "viernes", "sabado", "domingo" };
         public String[] pistas = { "está en el suelo", "se puede residir en ella", "cae 'a mares'", "ventana", "ordenador", "raton", "queso", "torre", "lunes", "martes", "miercoles", "jueves", "viernes", "sabado", "domingo" };
@@ -175,7 +176,8 @@ namespace Ahorcado
             ActualizaImagen();
             CrearBotones();
             DesactivaTeclas();
-            palabraadivinar = palabras[random.Next(0, palabras.Length)];
+            seleccion = random.Next(0, palabras.Length);
+            palabraadivinar = palabras[seleccion];
             SalidaTextBlock.Text = "";
             caracterespalabra = new string[palabraadivinar.Length];
             for (int i = 0; i < palabraadivinar.Length; i++)
@@ -252,6 +254,12 @@ namespace Ahorcado
         {
             EsconderDificultad();
             FinPartida();
+        }
+
+        private void PistaButton_Click(object sender, RoutedEventArgs e)
+        {
+            string pista = pistas[seleccion];
+            MessageBox.Show("Hello, world!", "My App");
         }
     }
 }
