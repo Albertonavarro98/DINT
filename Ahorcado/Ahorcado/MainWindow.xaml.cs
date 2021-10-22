@@ -259,7 +259,7 @@ namespace Ahorcado
         private void PistaButton_Click(object sender, RoutedEventArgs e)
         {
             string pista = pistas[seleccion];
-            MessageBox.Show("Hello, world!", "My App");
+            MessageBox.Show(pista, "Ahorcado");
         }
     }
 }

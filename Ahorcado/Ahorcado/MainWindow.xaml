@@ -24,7 +24,7 @@
             <StackPanel Orientation="Horizontal" DockPanel.Dock="Left" Margin="10">
                 <Button x:Name="NuevaPartidaBoton" Click="NuevaPartidaBoton_Click" Margin="5" Height="25" Width="100">Nueva partida</Button>
                 <Button Click="RendirseButton_Click" Margin="5" Height="25" Width="75">Rendirse</Button>
-                <Button Click="PistaButton_Click" Margin="5" Height="25" Width="75">Pistae</Button>
+                <Button Click="PistaButton_Click" Margin="5" Height="25" Width="75">Pista</Button>
             </StackPanel>
             <StackPanel DockPanel.Dock="Right" Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center" x:Name="ContenedorDificultades">
                 <Button Tag="Facil" Style="{StaticResource Dificultad}"> Facil</Button>
