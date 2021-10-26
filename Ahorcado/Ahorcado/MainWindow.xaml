@@ -4,7 +4,7 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         mc:Ignorable="d"
-        Title="Ahorcado" Height="450" Width="800" MinHeight="400" MinWidth="700"
+        Title="Ahorcado" Height="600" Width="800" MinHeight="500" MinWidth="750"  Icon="hanged.ico"
         KeyDown="Ahorcado_KeyDown">
     <Window.Resources>
         <Style TargetType="Button" x:Key="Teclas">
@@ -17,14 +17,19 @@
             <Setter Property="Height" Value="25"></Setter>
             <EventSetter Event="Click" Handler="DificultadButton_Click"></EventSetter>
         </Style>
+        <Style TargetType="Button" x:Key="Utilidad">
+            <Setter Property="Margin" Value="5"></Setter>
+            <Setter Property="Width" Value="85"></Setter>
+            <Setter Property="Height" Value="25"></Setter>
+        </Style>
     </Window.Resources>
     <DockPanel>
         <Label DockPanel.Dock="Top" FontSize="25" FontWeight="Bold" FontStyle="Italic" HorizontalAlignment="Center" > Ahorcado </Label>
         <DockPanel DockPanel.Dock="Bottom">
-            <StackPanel Orientation="Horizontal" DockPanel.Dock="Left" Margin="10">
-                <Button x:Name="NuevaPartidaBoton" Click="NuevaPartidaBoton_Click" Margin="5" Height="25" Width="100">Nueva partida</Button>
-                <Button Click="RendirseButton_Click" Margin="5" Height="25" Width="75">Rendirse</Button>
-                <Button Click="PistaButton_Click" Margin="5" Height="25" Width="75">Pista</Button>
+            <StackPanel Orientation="Horizontal" x:Name="UtilidadesStackPanel" DockPanel.Dock="Left" Margin="10">
+                <Button x:Name="NuevaPartidaBoton" Click="NuevaPartidaBoton_Click" Style="{StaticResource Utilidad}">Nueva partida</Button>
+                <Button Click="RendirseButton_Click" x:Name="rendirsebutotn" Style="{StaticResource Utilidad}">Rendirse</Button>
+                <Button Click="PistaButton_Click" x:Name="pistabutton" Style="{StaticResource Utilidad}">Pista</Button>
             </StackPanel>
             <StackPanel DockPanel.Dock="Right" Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center" x:Name="ContenedorDificultades">
                 <Button Tag="Facil" Style="{StaticResource Dificultad}"> Facil</Button>

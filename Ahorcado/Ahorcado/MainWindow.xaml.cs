@@ -20,19 +20,16 @@ namespace Ahorcado
     /// </summary>
     public partial class MainWindow : Window
     {
-        Encoding ascii = Encoding.ASCII;
-        Random random = new Random();
         string palabraadivinar;
         string[] caracterespalabra;
         int cuentaaciertos;
         double vidas;
-        bool dificultadseleccionada;
         double dificultad;
-        char error;
         int seleccion;
-        Char[] letras = new Char[27];
-        public String[] palabras = { "piedra", "casa", "agua", "ventana", "ordenador", "raton", "queso", "torre", "lunes", "martes", "miercoles", "jueves", "viernes", "sabado", "domingo" };
-        public String[] pistas = { "está en el suelo", "se puede residir en ella", "cae 'a mares'", "ventana", "ordenador", "raton", "queso", "torre", "lunes", "martes", "miercoles", "jueves", "viernes", "sabado", "domingo" };
+        string usadas;
+        bool dificultadseleccionada;
+        public String[] palabras = { "piedra", "castaña", "casa", "agua", "ventana", "ordenador", "raton", "queso", "torre", "lunes", "martes", "miercoles", "jueves", "viernes", "sabado", "domingo"};
+        public String[] pistas = { "está en el suelo", "La clase de AD de hoy", "se puede residir en ella", "cae 'a mares'", "normalmente tiene un marco y un vidrio", "equipo informático", "periférico y animal", "alimento lácteo", "parte de un ordenador o estructura vertical", "dia de la semana odiado por un gato naranja", "dia de la semana con nombre de un planeta", "día que siempre está enmedio", "verdadero día de enmedio", "dia más esperado", "penúltimo día", "dia de hacer el vago" };
 
         public MainWindow()
         {
@@ -47,7 +44,7 @@ namespace Ahorcado
 
         private void CaracterButton_Click(object sender, RoutedEventArgs e)
         {
-            CompruebaCaracter((sender as Button).Tag.ToString());
+            if(dificultadseleccionada) CompruebaCaracter((sender as Button).Tag.ToString());
         }
 
         public void ActualizaImagen()
@@ -62,8 +59,7 @@ namespace Ahorcado
             int c = 0, r = 0;
             for (int i = 0; i < 26; i++)
             {
-                letras[i] = Convert.ToChar(65 + i);
-                tag = letras[i] + "";
+                tag = Convert.ToChar(65 + i).ToString();
                 BotonCaracter = new Button
                 {
                     Content = tag,
@@ -77,7 +73,6 @@ namespace Ahorcado
                 Grid.SetRow(BotonCaracter, r);
                 contenedorbotones.Children.Add(BotonCaracter);
             }
-            letras[26] = 'Ñ';
             BotonCaracter = new Button
             {
                 Content = "Ñ",
@@ -100,8 +95,7 @@ namespace Ahorcado
             {
                 try
                 {
-
-                    if (palabraadivinar[i] == char.Parse(entrada.ToLower())) { caracterespalabra[i] = entrada; contiene = true; ActualizaPalabra(); cuentaaciertos++; }
+                    if (palabraadivinar[i] == char.Parse(entrada.ToLower()) && !usadas.Contains(entrada)) { caracterespalabra[i] = entrada; contiene = true; ActualizaPalabra(); cuentaaciertos++; }
                     MarcaLetraUsada(entrada);
                 }
                 catch (Exception) { }
@@ -116,7 +110,8 @@ namespace Ahorcado
                 }
                 else { FinPartida(); }
             }
-            if (cuentaaciertos == palabraadivinar.Length) { EjecutaVictoria(); }
+            else usadas = usadas + entrada;
+            if (cuentaaciertos == palabraadivinar.Length) { EjecutaVictoria();}
 
         }
         public void MarcaLetraUsada(string entrada)
@@ -131,6 +126,8 @@ namespace Ahorcado
         }
         public void FinPartida()
         {
+            rendirsebutotn.IsEnabled = false;
+            pistabutton.IsEnabled = false;
             SalidaTextBlock.Text = "Has perdido, pulsa reiniciar";
             Mensaje("Has perdido" + ", la palabra era: " + palabraadivinar);
             DesactivaTeclas();
@@ -144,6 +141,7 @@ namespace Ahorcado
         }
         public void ActivarTeclas()
         {
+            rendirsebutotn.IsEnabled = true;
             foreach (Button boton in contenedorbotones.Children)
             {
                 boton.IsEnabled = true;
@@ -151,7 +149,8 @@ namespace Ahorcado
         }
         public void EjecutaVictoria()
         {
-            SalidaTextBlock.Text = "ENHORABUENAA!!";
+            rendirsebutotn.IsEnabled = false;
+            pistabutton.IsEnabled = false;
             foreach (Button boton in contenedorbotones.Children)
             {
                 boton.Content = ":)";
@@ -170,8 +169,14 @@ namespace Ahorcado
         }
         public void IniciarPartida()
         {
+            rendirsebutotn.IsEnabled = false;
+            pistabutton.IsEnabled = false;
+            Random random = new Random();
+            usadas = "";
             vidas = 11;
             cuentaaciertos = 0;
+            dificultadseleccionada = false;
+            SalidaTextBlock.Visibility = Visibility.Hidden;
             MostrarDificultad();
             ActualizaImagen();
             CrearBotones();
@@ -190,7 +195,11 @@ namespace Ahorcado
 
         private void Ahorcado_KeyDown(object sender, KeyEventArgs e)
         {
-            CompruebaCaracter(e.Key.ToString());
+            if (dificultadseleccionada) 
+            {
+                if (e.Key == Key.Oem3) CompruebaCaracter("Ñ");
+                else CompruebaCaracter(e.Key.ToString());
+            }
         }
 
         private void DificultadButton_Click(object sender, RoutedEventArgs e)
@@ -200,20 +209,26 @@ namespace Ahorcado
                 case "Facil":
                     dificultad = 1;
                     dificultadseleccionada = true;
+                    pistabutton.IsEnabled = true;
                     ActivarTeclas();
-                    EsconderDificultad();
+                    EsconderDificultad(); 
+                    rendirsebutotn.IsEnabled = true;
+                    SalidaTextBlock.Visibility = Visibility.Visible;
                     break;
                 case "Medio":
                     dificultad = 1.5;
+                    pistabutton.IsEnabled = true;
                     dificultadseleccionada = true;
                     ActivarTeclas();
                     EsconderDificultad();
+                    SalidaTextBlock.Visibility = Visibility.Visible;
                     break;
                 case "Dificil":
                     dificultad = 2;
                     dificultadseleccionada = true;
                     ActivarTeclas();
                     EsconderDificultad();
+                    SalidaTextBlock.Visibility = Visibility.Visible;
                     break;
             }
         }
@@ -245,7 +260,6 @@ namespace Ahorcado
                     Close();
                     break;
                 case MessageBoxResult.Cancel:
-                    
                     break;
             }
         }
@@ -260,6 +274,7 @@ namespace Ahorcado
         {
             string pista = pistas[seleccion];
             MessageBox.Show(pista, "Ahorcado");
+            if (dificultad == 1.5) pistabutton.IsEnabled = false;
         }
     }
 }
