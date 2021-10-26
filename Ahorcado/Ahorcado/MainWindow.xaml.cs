@@ -35,6 +35,7 @@ namespace Ahorcado
         {
             InitializeComponent();
             IniciarPartida();
+            NuevaPartidaBoton.IsEnabled = false;
         }
 
         private void NuevaPartidaBoton_Click(object sender, RoutedEventArgs e)
@@ -142,6 +143,7 @@ namespace Ahorcado
         public void ActivarTeclas()
         {
             rendirsebutotn.IsEnabled = true;
+            NuevaPartidaBoton.IsEnabled = true;
             foreach (Button boton in contenedorbotones.Children)
             {
                 boton.IsEnabled = true;

@@ -8,8 +8,12 @@
         KeyDown="Ahorcado_KeyDown">
     <Window.Resources>
         <Style TargetType="Button" x:Key="Teclas">
-            <Setter Property="Margin" Value="5"></Setter>
+            <Setter Property="Margin" Value="1"></Setter>
+            <Setter Property="MinHeight" Value="50"></Setter>
+            <Setter Property="FontSize" Value="25"></Setter>
             <EventSetter Event="Click" Handler="CaracterButton_Click"></EventSetter>
+            <Setter Property="BorderBrush" Value="Black"></Setter>
+            <Setter Property="BorderThickness" Value="2"></Setter>
         </Style>
         <Style TargetType="Button" x:Key="Dificultad">
             <Setter Property="Margin" Value="10"></Setter>
@@ -24,7 +28,9 @@
         </Style>
     </Window.Resources>
     <DockPanel>
-        <Label DockPanel.Dock="Top" FontSize="25" FontWeight="Bold" FontStyle="Italic" HorizontalAlignment="Center" > Ahorcado </Label>
+        <Viewbox  DockPanel.Dock="Top" MaxHeight="75">
+            <TextBlock FontWeight="Bold" FontStyle="Italic" HorizontalAlignment="Center" >Ahorcado</TextBlock>
+        </Viewbox>
         <DockPanel DockPanel.Dock="Bottom">
             <StackPanel Orientation="Horizontal" x:Name="UtilidadesStackPanel" DockPanel.Dock="Left" Margin="10">
                 <Button x:Name="NuevaPartidaBoton" Click="NuevaPartidaBoton_Click" Style="{StaticResource Utilidad}">Nueva partida</Button>
@@ -32,15 +38,34 @@
                 <Button Click="PistaButton_Click" x:Name="pistabutton" Style="{StaticResource Utilidad}">Pista</Button>
             </StackPanel>
             <StackPanel DockPanel.Dock="Right" Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center" x:Name="ContenedorDificultades">
-                <Button Tag="Facil" Style="{StaticResource Dificultad}"> Facil</Button>
-                <Button Tag="Medio" Style="{StaticResource Dificultad}"> Medio </Button>
-                <Button Tag="Dificil" Style="{StaticResource Dificultad}"> Dificil </Button>
+                <Button Tag="Facil" Style="{StaticResource Dificultad}">
+                    <Button.Background>
+                        <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                            <GradientStop Color="#FFBAE686" Offset="1"/>
+                            <GradientStop Color="#FFD4DEC8" Offset="0.491"/>
+                        </LinearGradientBrush>
+                    </Button.Background> Facil
+                </Button>
+                <Button Tag="Medio" Style="{StaticResource Dificultad}">
+                    <Button.Background>
+                        <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                            <GradientStop Color="#FFF3EC5A" Offset="1"/>
+                            <GradientStop Color="#FFD4DEC8" Offset="0.393"/>
+                        </LinearGradientBrush>
+                    </Button.Background> Medio</Button>
+                <Button Tag="Dificil" Style="{StaticResource Dificultad}">
+                    <Button.Background>
+                        <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                            <GradientStop Color="#FFF3906B" Offset="1"/>
+                            <GradientStop Color="#FFDECFC8" Offset="0.474"/>
+                        </LinearGradientBrush>
+                    </Button.Background> Dificil</Button>
             </StackPanel>
         </DockPanel>
-        <Image Stretch="Uniform" Margin="15 0 0 0"  Width="250" x:Name="imagen" DockPanel.Dock="Left" HorizontalAlignment="Left"/>
+        <Image Stretch="Fill" Margin="15 0 0 0"  Width="250" x:Name="imagen" DockPanel.Dock="Left" HorizontalAlignment="Left"/>
 
         <DockPanel Margin="15">
-            <Grid DockPanel.Dock="Bottom" x:Name="contenedorbotones">
+            <Grid DockPanel.Dock="Bottom" MinHeight="150" x:Name="contenedorbotones" Background="Gray">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition></ColumnDefinition>
                     <ColumnDefinition></ColumnDefinition>
@@ -57,9 +82,9 @@
                     <RowDefinition></RowDefinition>
                     <RowDefinition></RowDefinition>
                 </Grid.RowDefinitions>
-                
+
             </Grid>
-            <Viewbox>
+            <Viewbox DockPanel.Dock="Top">
                 <TextBlock Margin="5" x:Name="SalidaTextBlock"></TextBlock>
             </Viewbox>
         </DockPanel>
