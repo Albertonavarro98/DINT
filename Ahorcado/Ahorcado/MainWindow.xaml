@@ -27,66 +27,80 @@
             <Setter Property="Height" Value="25"></Setter>
         </Style>
     </Window.Resources>
-    <DockPanel>
-        <Viewbox  DockPanel.Dock="Top" MaxHeight="75">
-            <TextBlock FontWeight="Bold" FontStyle="Italic" HorizontalAlignment="Center" >Ahorcado</TextBlock>
-        </Viewbox>
-        <DockPanel DockPanel.Dock="Bottom">
-            <StackPanel Orientation="Horizontal" x:Name="UtilidadesStackPanel" DockPanel.Dock="Left" Margin="10">
-                <Button x:Name="NuevaPartidaBoton" Click="NuevaPartidaBoton_Click" Style="{StaticResource Utilidad}">Nueva partida</Button>
-                <Button Click="RendirseButton_Click" x:Name="rendirsebutotn" Style="{StaticResource Utilidad}">Rendirse</Button>
-                <Button Click="PistaButton_Click" x:Name="pistabutton" Style="{StaticResource Utilidad}">Pista</Button>
-            </StackPanel>
-            <StackPanel DockPanel.Dock="Right" Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center" x:Name="ContenedorDificultades">
-                <Button Tag="Facil" Style="{StaticResource Dificultad}">
-                    <Button.Background>
-                        <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
-                            <GradientStop Color="#FFBAE686" Offset="1"/>
-                            <GradientStop Color="#FFD4DEC8" Offset="0.491"/>
-                        </LinearGradientBrush>
-                    </Button.Background> Facil
-                </Button>
-                <Button Tag="Medio" Style="{StaticResource Dificultad}">
-                    <Button.Background>
-                        <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
-                            <GradientStop Color="#FFF3EC5A" Offset="1"/>
-                            <GradientStop Color="#FFD4DEC8" Offset="0.393"/>
-                        </LinearGradientBrush>
-                    </Button.Background> Medio</Button>
-                <Button Tag="Dificil" Style="{StaticResource Dificultad}">
-                    <Button.Background>
-                        <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
-                            <GradientStop Color="#FFF3906B" Offset="1"/>
-                            <GradientStop Color="#FFDECFC8" Offset="0.474"/>
-                        </LinearGradientBrush>
-                    </Button.Background> Dificil</Button>
-            </StackPanel>
-        </DockPanel>
-        <Image Stretch="Fill" Margin="15 0 0 0"  Width="250" x:Name="imagen" DockPanel.Dock="Left" HorizontalAlignment="Left"/>
-
-        <DockPanel Margin="15">
-            <Grid DockPanel.Dock="Bottom" MinHeight="150" x:Name="contenedorbotones" Background="Gray">
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition></ColumnDefinition>
-                    <ColumnDefinition></ColumnDefinition>
-                    <ColumnDefinition></ColumnDefinition>
-                    <ColumnDefinition></ColumnDefinition>
-                    <ColumnDefinition></ColumnDefinition>
-                    <ColumnDefinition></ColumnDefinition>
-                    <ColumnDefinition></ColumnDefinition>
-                    <ColumnDefinition></ColumnDefinition>
-                    <ColumnDefinition></ColumnDefinition>
-                </Grid.ColumnDefinitions>
-                <Grid.RowDefinitions>
-                    <RowDefinition ></RowDefinition>
-                    <RowDefinition></RowDefinition>
-                    <RowDefinition></RowDefinition>
-                </Grid.RowDefinitions>
-
-            </Grid>
-            <Viewbox DockPanel.Dock="Top">
-                <TextBlock Margin="5" x:Name="SalidaTextBlock"></TextBlock>
+    <DockPanel Background="LightGray">
+        
+        <Border  DockPanel.Dock="Top" MaxHeight="75" BorderThickness="1" BorderBrush="Gray" Margin="1">
+            <Viewbox>
+                <TextBlock FontWeight="Bold" FontStyle="Italic" HorizontalAlignment="Center" >Ahorcado</TextBlock>
             </Viewbox>
-        </DockPanel>
+        </Border>
+
+        <Border BorderBrush="DimGray" BorderThickness="1"  DockPanel.Dock="Bottom">
+            <DockPanel>
+                <StackPanel Orientation="Horizontal" x:Name="UtilidadesStackPanel" DockPanel.Dock="Left" Margin="10">
+                    <Button x:Name="NuevaPartidaBoton" Click="NuevaPartidaBoton_Click" Style="{StaticResource Utilidad}">Nueva partida</Button>
+                    <Button Click="RendirseButton_Click" x:Name="rendirsebutotn" Style="{StaticResource Utilidad}">Rendirse</Button>
+                    <Button Click="PistaButton_Click" x:Name="pistabutton" Style="{StaticResource Utilidad}">Pista</Button>
+                </StackPanel>
+                <StackPanel DockPanel.Dock="Right" Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center" x:Name="ContenedorDificultades">
+                    <Button Tag="Facil" Style="{StaticResource Dificultad}">
+                        <Button.Background>
+                            <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                                <GradientStop Color="#FFBAE686" Offset="1"/>
+                                <GradientStop Color="#FFD4DEC8" Offset="0.491"/>
+                            </LinearGradientBrush>
+                        </Button.Background> Facil
+                    </Button>
+                    <Button Tag="Medio" Style="{StaticResource Dificultad}">
+                        <Button.Background>
+                            <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                                <GradientStop Color="#FFF3EC5A" Offset="1"/>
+                                <GradientStop Color="#FFD4DEC8" Offset="0.393"/>
+                            </LinearGradientBrush>
+                        </Button.Background> Medio
+                    </Button>
+                    <Button Tag="Dificil" Style="{StaticResource Dificultad}">
+                        <Button.Background>
+                            <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                                <GradientStop Color="#FFF3906B" Offset="1"/>
+                                <GradientStop Color="#FFDECFC8" Offset="0.474"/>
+                            </LinearGradientBrush>
+                        </Button.Background> Dificil
+                    </Button>
+                </StackPanel>
+            </DockPanel>
+        </Border>
+
+        <Border BorderBrush="DarkGray" DockPanel.Dock="Left" BorderThickness="1.5" Padding="5" Margin="15 0 0 0" Background="DimGray">
+            <Image Stretch="Fill"  Width="250" x:Name="imagen" HorizontalAlignment="Left"/>
+        </Border>
+
+        <Border Margin="12.5" BorderBrush="Gray" BorderThickness="1">
+            <DockPanel Margin="2.5">
+                <Grid DockPanel.Dock="Bottom" MinHeight="150" x:Name="contenedorbotones" Background="Gray">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition></ColumnDefinition>
+                        <ColumnDefinition></ColumnDefinition>
+                        <ColumnDefinition></ColumnDefinition>
+                        <ColumnDefinition></ColumnDefinition>
+                        <ColumnDefinition></ColumnDefinition>
+                        <ColumnDefinition></ColumnDefinition>
+                        <ColumnDefinition></ColumnDefinition>
+                        <ColumnDefinition></ColumnDefinition>
+                        <ColumnDefinition></ColumnDefinition>
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition ></RowDefinition>
+                        <RowDefinition></RowDefinition>
+                        <RowDefinition></RowDefinition>
+                    </Grid.RowDefinitions>
+
+                </Grid>
+                <Viewbox DockPanel.Dock="Top" HorizontalAlignment="Center" VerticalAlignment="Center">
+                    <TextBlock Margin="5" x:Name="SalidaTextBlock" HorizontalAlignment="Center" VerticalAlignment="Center"></TextBlock>
+                </Viewbox>
+            </DockPanel>
+        </Border>
+       
     </DockPanel>
 </Window>

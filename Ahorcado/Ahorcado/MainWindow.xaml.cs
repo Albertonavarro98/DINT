@@ -40,7 +40,16 @@ namespace Ahorcado
 
         private void NuevaPartidaBoton_Click(object sender, RoutedEventArgs e)
         {
-            IniciarPartida();
+            MessageBoxResult result = MessageBox.Show("Quieres reiniciar la partida?", "Ahorcado", MessageBoxButton.YesNo);
+            switch (result)
+            {
+                case MessageBoxResult.Yes:
+                    IniciarPartida();
+                    NuevaPartidaBoton.IsEnabled = false;
+                    break;
+                case MessageBoxResult.No:
+                    break;
+            }
         }
 
         private void CaracterButton_Click(object sender, RoutedEventArgs e)
