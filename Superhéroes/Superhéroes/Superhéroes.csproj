@@ -4,10 +4,10 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{EF2E8EDF-3B1B-4EE1-8D6A-4E78AD6BC2A1}</ProjectGuid>
+    <ProjectGuid>{E85302A6-DE2B-41FB-BB1B-24D7C04CEAFC}</ProjectGuid>
     <OutputType>WinExe</OutputType>
-    <RootNamespace>Ahorcado</RootNamespace>
-    <AssemblyName>Ahorcado</AssemblyName>
+    <RootNamespace>Superhéroes</RootNamespace>
+    <AssemblyName>Superhéroes</AssemblyName>
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <ProjectTypeGuids>{60dc8134-eba5-43b8-bcc9-bb4bc16c2548};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
@@ -34,18 +34,6 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
-  <PropertyGroup>
-    <ApplicationIcon>juego-del-ahorcado.ico</ApplicationIcon>
-  </PropertyGroup>
-  <PropertyGroup>
-    <Win32Resource>
-    </Win32Resource>
-  </PropertyGroup>
-  <PropertyGroup>
-    <StartupObject>
-    </StartupObject>
-  </PropertyGroup>
-  <PropertyGroup />
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Data" />
@@ -105,22 +93,6 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="img\0.jpg" />
-    <Resource Include="img\1.jpg" />
-    <Resource Include="img\10.jpg" />
-    <Resource Include="img\2.jpg" />
-    <Resource Include="img\3.jpg" />
-    <Resource Include="img\4.jpg" />
-    <Resource Include="img\5.jpg" />
-    <Resource Include="img\6.jpg" />
-    <Resource Include="img\7.jpg" />
-    <Resource Include="img\8.jpg" />
-    <Resource Include="img\9.jpg" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="juego-del-ahorcado.ico" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

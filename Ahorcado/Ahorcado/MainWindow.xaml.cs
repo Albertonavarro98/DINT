@@ -28,8 +28,8 @@ namespace Ahorcado
         int seleccion;
         string usadas;
         bool dificultadseleccionada;
-        public String[] palabras = { "piedra", "castaña", "casa", "agua", "ventana", "ordenador", "raton", "queso", "torre", "lunes", "martes", "miercoles", "jueves", "viernes", "sabado", "domingo"};
-        public String[] pistas = { "está en el suelo", "La clase de AD de hoy", "se puede residir en ella", "cae 'a mares'", "normalmente tiene un marco y un vidrio", "equipo informático", "periférico y animal", "alimento lácteo", "parte de un ordenador o estructura vertical", "dia de la semana odiado por un gato naranja", "dia de la semana con nombre de un planeta", "día que siempre está enmedio", "verdadero día de enmedio", "dia más esperado", "penúltimo día", "dia de hacer el vago" };
+        private string[] palabras = { "piedra", "castaña", "casa", "agua", "ventana", "ordenador", "raton", "queso", "torre", "lunes", "martes", "miercoles", "jueves", "viernes", "sabado", "domingo" };
+        private string[] pistas = { "está en el suelo", "La clase de AD de hoy", "se puede residir en ella", "en el mar hay mucha", "normalmente tiene un marco y un vidrio", "equipo informático", "periférico y animal", "alimento lácteo", "parte de un ordenador o estructura vertical", "dia de la semana odiado por un gato naranja", "dia de la semana con nombre de un planeta", "día que siempre está enmedio", "verdadero día de enmedio", "dia más esperado", "penúltimo día", "dia de hacer el vago" };
 
         public MainWindow()
         {
@@ -54,13 +54,12 @@ namespace Ahorcado
 
         private void CaracterButton_Click(object sender, RoutedEventArgs e)
         {
-            if(dificultadseleccionada) CompruebaCaracter((sender as Button).Tag.ToString());
+            if (dificultadseleccionada) CompruebaCaracter((sender as Button).Tag.ToString());
         }
 
         public void ActualizaImagen()
         {
             imagen.Source = new BitmapImage(new Uri("/img/" + (11 - Math.Round(vidas)) + ".jpg", UriKind.RelativeOrAbsolute));
-            if((11 - Math.Round(vidas)) > 10) imagen.Source = new BitmapImage(new Uri("/img/10.jpg", UriKind.RelativeOrAbsolute));
         }
         public void CrearBotones()
         {
@@ -100,28 +99,28 @@ namespace Ahorcado
         {
 
             bool contiene = false;
-
-            for (int i = 0; i < palabraadivinar.Length; i++)
+            try
             {
-                try
+                for (int i = 0; i < palabraadivinar.Length; i++)
                 {
+
                     if (palabraadivinar[i] == char.Parse(entrada.ToLower()) && !usadas.Contains(entrada)) { caracterespalabra[i] = entrada; contiene = true; ActualizaPalabra(); cuentaaciertos++; }
                     MarcaLetraUsada(entrada);
+
                 }
-                catch (Exception) { }
-            }
+            }catch (Exception) { MessageBox.Show("Has introducido un carácter erróneo", "Ahorcado", MessageBoxButton.OKCancel); vidas--; }
 
             if (!contiene)
             {
                 vidas = vidas - dificultad;
-                if (vidas > 0)
+                if (vidas > 1)
                 {
                     ActualizaImagen();
                 }
                 else { FinPartida(); }
             }
             else usadas = usadas + entrada;
-            if (cuentaaciertos == palabraadivinar.Length) { EjecutaVictoria();}
+            if (cuentaaciertos == palabraadivinar.Length) { EjecutaVictoria(); }
 
         }
         public void MarcaLetraUsada(string entrada)
@@ -136,6 +135,7 @@ namespace Ahorcado
         }
         public void FinPartida()
         {
+            imagen.Source = new BitmapImage(new Uri("/img/10.jpg", UriKind.RelativeOrAbsolute));
             rendirsebutotn.IsEnabled = false;
             pistabutton.IsEnabled = false;
             SalidaTextBlock.Text = "Has perdido, pulsa reiniciar";
@@ -172,11 +172,19 @@ namespace Ahorcado
         }
         public void ActualizaPalabra()
         {
-            SalidaTextBlock.Text = "";
-            for (int i = 0; i < caracterespalabra.Length; i++)
+            try
             {
-                SalidaTextBlock.Text = SalidaTextBlock.Text + " " + caracterespalabra[i];
+                SalidaTextBlock.Text = "";
+                for (int i = 0; i < caracterespalabra.Length; i++)
+                {
+                    SalidaTextBlock.Text = SalidaTextBlock.Text + " " + caracterespalabra[i];
+                }
             }
+            catch (Exception)
+            {
+                MessageBox.Show("Has introducido un carácter erróneo", "Ahorcado", MessageBoxButton.OKCancel);
+            }
+
         }
         public void IniciarPartida()
         {
@@ -206,11 +214,16 @@ namespace Ahorcado
 
         private void Ahorcado_KeyDown(object sender, KeyEventArgs e)
         {
-            if (dificultadseleccionada) 
+            try
             {
-                if (e.Key == Key.Oem3) CompruebaCaracter("Ñ");
-                else CompruebaCaracter(e.Key.ToString());
+                if (dificultadseleccionada)
+                {
+                    if (e.Key == Key.Oem3) CompruebaCaracter("Ñ");
+                    else CompruebaCaracter(e.Key.ToString());
+                }
             }
+            catch (FormatException) { vidas--; }
+
         }
 
         private void DificultadButton_Click(object sender, RoutedEventArgs e)
@@ -222,7 +235,7 @@ namespace Ahorcado
                     dificultadseleccionada = true;
                     pistabutton.IsEnabled = true;
                     ActivarTeclas();
-                    EsconderDificultad(); 
+                    EsconderDificultad();
                     rendirsebutotn.IsEnabled = true;
                     SalidaTextBlock.Visibility = Visibility.Visible;
                     break;
@@ -278,6 +291,7 @@ namespace Ahorcado
         private void RendirseButton_Click(object sender, RoutedEventArgs e)
         {
             EsconderDificultad();
+            NuevaPartidaBoton.IsEnabled = false;
             FinPartida();
         }
 
