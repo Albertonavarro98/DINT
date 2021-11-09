@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Data;
 
-namespace Superhéroes
+namespace Superheroes
 {
     public class VengadorXmenConverter : IValueConverter
     {

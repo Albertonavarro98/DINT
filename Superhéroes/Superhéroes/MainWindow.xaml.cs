@@ -14,14 +14,14 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace Superhéroes
+namespace Superheroes
 {
     /// <summary>
     /// Lógica de interacción para MainWindow.xaml
     /// </summary>
     public partial class MainWindow : Window
     {
-        static int posicion=0;
+        int posicion=0;
         static List<Superheroe> superheroes = Superheroe.GetSamples();
         public MainWindow()
         {

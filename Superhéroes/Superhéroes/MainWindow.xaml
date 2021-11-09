@@ -1,9 +1,9 @@
-﻿<Window x:Class="Superhéroes.MainWindow"
+﻿<Window x:Class="Superheroes.MainWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:Superhéroes"
+        xmlns:local="clr-namespace:Superheroes"
         mc:Ignorable="d"
         Title="Superhéroes" Height="700" Width="1000" MinHeight="500" MinWidth="700" Icon="img/shield.ico">
     <Window.Resources>
@@ -15,14 +15,14 @@
         <local:HeroeVillanoConverter x:Key="HeroeVillanoConverter"></local:HeroeVillanoConverter>
         <local:VengadorXmenConverter x:Key="VengadorXmenConverter"></local:VengadorXmenConverter>
     </Window.Resources>
-    <DockPanel x:Name="fondoHeroe" Background="LightBlue">
+    <DockPanel x:Name="fondoHeroe" Background="{Binding Path=Heroe, Converter={StaticResource HeroeVillanoConverter}}">
         <DockPanel DockPanel.Dock="Top" LastChildFill="False">
-            <TextBlock x:Name="nombreTextBlock" Text="{Binding Path=Heroe, Converter=HeroeVillanoConverter}" DockPanel.Dock="Left" FontSize="40" FontWeight="Bold" FontFamily="Rubik" VerticalAlignment="Center" Foreground="{DynamicResource {x:Static SystemColors.ControlLightLightBrushKey}}">
+            <TextBlock x:Name="nombreTextBlock" Text="{Binding Path=Nombre}" DockPanel.Dock="Left" FontSize="40" FontWeight="Bold" FontFamily="Rubik" VerticalAlignment="Center" Foreground="{DynamicResource {x:Static SystemColors.ControlLightLightBrushKey}}">
                 <TextBlock.Effect>
                     <DropShadowEffect Direction="330" ShadowDepth="8"/>
                 </TextBlock.Effect></TextBlock>
-            <Image x:Name="imagen2" Style="{StaticResource iconospertenencia}" Visibility="{Binding Path=Xmen, Converter=VengadorXmenConverter}" Source="img/xmen.png"></Image>
-            <Image x:Name="imagen1" Style="{StaticResource iconospertenencia}" Visibility="{Binding Path=Vengador, Converter=VengadorXmenConverter}" Source="img/avengers.png"></Image>
+            <Image x:Name="imagen2" Style="{StaticResource iconospertenencia}" Visibility="{Binding Path=Xmen, Converter={StaticResource VengadorXmenConverter}}" Source="img/xmen.png"></Image>
+            <Image x:Name="imagen1" Style="{StaticResource iconospertenencia}" Visibility="{Binding Path=Vengador, Converter={StaticResource VengadorXmenConverter}}" Source="img/avengers.png"></Image>
         </DockPanel>
         <StackPanel DockPanel.Dock="Bottom" Height="50" VerticalAlignment="Center" HorizontalAlignment="Center" Orientation="Horizontal">
             <Button Click="ButtonFlechaAtras_Click" Background="Transparent" BorderBrush="Transparent">
