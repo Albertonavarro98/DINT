@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Superhéroes;
+using System;
 using System.Collections.Generic;
 using System.Globalization;
 using System.Linq;
@@ -21,26 +22,20 @@ namespace Superheroes
     /// </summary>
     public partial class MainWindow : Window
     {
-        int posicion=0;
-        static List<Superheroe> superheroes = Superheroe.GetSamples();
+        MainWindowVistaModelo vm = new MainWindowVistaModelo();
         public MainWindow()
         {
             InitializeComponent();
-            DataContext = superheroes[posicion];
-            PosicionActualLabel.Content = posicion+1;
+            this.DataContext = vm;
         }
 
         private void ButtonFlechaAtras_Click(object sender, RoutedEventArgs e)
         {
-            if (posicion > 0) { posicion--; }
-            PosicionActualLabel.Content = posicion+1;
-            DataContext = superheroes[posicion];
+            vm.Retroceder();
         }
         private void ButtonFlechaAlante_Click(object sender, RoutedEventArgs e)
         {
-            if (posicion >= 0 && posicion < 2) { posicion++; }
-            PosicionActualLabel.Content = posicion+1;
-            DataContext = superheroes[posicion];
+            vm.Avanzar();
         }
        
 

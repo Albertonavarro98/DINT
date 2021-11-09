@@ -15,23 +15,23 @@
         <local:HeroeVillanoConverter x:Key="HeroeVillanoConverter"></local:HeroeVillanoConverter>
         <local:VengadorXmenConverter x:Key="VengadorXmenConverter"></local:VengadorXmenConverter>
     </Window.Resources>
-    <DockPanel x:Name="fondoHeroe" Background="{Binding Path=Heroe, Converter={StaticResource HeroeVillanoConverter}}">
+    <DockPanel x:Name="fondoHeroe" Background="{Binding Path=Superheroeactual.Heroe, Converter={StaticResource HeroeVillanoConverter}}">
         <DockPanel DockPanel.Dock="Top" LastChildFill="False">
-            <TextBlock x:Name="nombreTextBlock" Text="{Binding Path=Nombre}" DockPanel.Dock="Left" FontSize="40" FontWeight="Bold" FontFamily="Rubik" VerticalAlignment="Center" Foreground="{DynamicResource {x:Static SystemColors.ControlLightLightBrushKey}}">
+            <TextBlock x:Name="nombreTextBlock" Text="{Binding Path=Superheroeactual.Nombre}" DockPanel.Dock="Left" FontSize="40" FontWeight="Bold" FontFamily="Rubik" VerticalAlignment="Center" Foreground="{DynamicResource {x:Static SystemColors.ControlLightLightBrushKey}}">
                 <TextBlock.Effect>
                     <DropShadowEffect Direction="330" ShadowDepth="8"/>
                 </TextBlock.Effect></TextBlock>
-            <Image x:Name="imagen2" Style="{StaticResource iconospertenencia}" Visibility="{Binding Path=Xmen, Converter={StaticResource VengadorXmenConverter}}" Source="img/xmen.png"></Image>
-            <Image x:Name="imagen1" Style="{StaticResource iconospertenencia}" Visibility="{Binding Path=Vengador, Converter={StaticResource VengadorXmenConverter}}" Source="img/avengers.png"></Image>
+            <Image x:Name="imagen2" Style="{StaticResource iconospertenencia}" Visibility="{Binding Path=Superheroeactual.Xmen, Converter={StaticResource VengadorXmenConverter}}" Source="img/xmen.png"></Image>
+            <Image x:Name="imagen1" Style="{StaticResource iconospertenencia}" Visibility="{Binding Path=Superheroeactual.Vengador, Converter={StaticResource VengadorXmenConverter}}" Source="img/avengers.png"></Image>
         </DockPanel>
         <StackPanel DockPanel.Dock="Bottom" Height="50" VerticalAlignment="Center" HorizontalAlignment="Center" Orientation="Horizontal">
             <Button Click="ButtonFlechaAtras_Click" Background="Transparent" BorderBrush="Transparent">
                 <Image Source="/img/arrow.png"/>
             </Button>
             <StackPanel Margin="3" Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Center">
-                <Label Margin="-3"  FontSize="20" FontWeight="Bold" Name="PosicionActualLabel"></Label>
+                <Label Margin="-3"  FontSize="20" FontWeight="Bold" Name="PosicionActualLabel" Content="{Binding Path=PosicionActual}"></Label>
                 <Label  Margin="-5"  FontSize="20" FontWeight="Bold" >/</Label>
-                <Label  Margin="-3" FontSize="20" FontWeight="Bold" Name="LongitudLabel"> 3</Label>
+                <Label  Margin="-3" FontSize="20" FontWeight="Bold" Name="LongitudLabel" Content="{Binding Path=TotalHeroes}"></Label>
             </StackPanel>
             <Button Click="ButtonFlechaAlante_Click" Background="Transparent"  BorderBrush="Transparent">
                 <Image Source="/img/arrow.png" RenderTransformOrigin="0.5,0.5" >
@@ -46,6 +46,6 @@
                 </Image>
             </Button>
         </StackPanel>
-        <Image Margin="10" Source="{Binding Path=Imagen}"></Image>
+        <Image Margin="10,10,10,0" Source="{Binding Path=Superheroeactual.Imagen}" Height="549" VerticalAlignment="Top"></Image>
     </DockPanel>
 </Window>
