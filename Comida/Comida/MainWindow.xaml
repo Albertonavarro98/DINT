@@ -1,0 +1,147 @@
+﻿<Window x:Class="Comida.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Comida"
+        mc:Ignorable="d"
+        Title="Comida" MinHeight="500" MinWidth="650"  Height="450" Width="800" Background="LightBlue" Icon="/imagenes/fruit_food_apple.ico">
+
+    <Window.Resources>
+        <Style TargetType="Image" x:Key="paisImagen">
+            <Style.Triggers>
+                <DataTrigger Binding="{Binding Path=Tipo}" Value="Mexicana">
+                    <Setter Property="Source" Value="/imagenes/mexico.png"> </Setter>
+                </DataTrigger>
+                <DataTrigger Binding="{Binding Path=Tipo}" Value="Americana">
+                    <Setter Property="Source" Value="/imagenes/united_states.png"></Setter>
+                </DataTrigger>
+                <DataTrigger Binding="{Binding Path=Tipo}" Value="China">
+                    <Setter Property="Source" Value="/imagenes/china.png"></Setter>
+                </DataTrigger>
+            </Style.Triggers>
+        </Style>
+        <Style TargetType="TextBlock" x:Key="paisFuente">
+            <Setter Property="FontSize" Value="20"></Setter>
+            <Setter Property="HorizontalAlignment" Value="Center"></Setter>
+            <Style.Triggers>
+                <DataTrigger Binding="{Binding Path=Tipo}" Value="Mexicana">
+                    <Setter Property="FontFamily" Value="Taco salad font"></Setter>
+                </DataTrigger>
+                <DataTrigger Binding="{Binding Path=Tipo}" Value="Americana">
+                    <Setter Property="FontFamily" Value="Slim Summer"></Setter>
+                </DataTrigger>
+                <DataTrigger Binding="{Binding Path=Tipo}" Value="China">
+                    <Setter Property="FontFamily" Value="Chinese wok food st font"></Setter>
+                </DataTrigger>
+            </Style.Triggers>
+        </Style>
+        <Style TargetType="Image" x:Key="alergenosGlutenImagen">
+            <Style.Triggers>
+                <DataTrigger Binding="{Binding Path=Gluten}" Value="False">
+                    <Setter Property="Visibility" Value="Collapsed"></Setter>
+                </DataTrigger>
+            </Style.Triggers>
+        </Style>
+        <Style TargetType="Image" x:Key="alergenosLecheImagen">
+            <Style.Triggers>
+                <DataTrigger Binding="{Binding Path=Leche}" Value="False">
+                    <Setter Property="Visibility" Value="Collapsed"></Setter>
+                </DataTrigger>
+            </Style.Triggers>
+        </Style>
+        <Style TargetType="Image" x:Key="alergenosSulfiImagen">
+            <Style.Triggers>
+                <DataTrigger Binding="{Binding Path=Sulfitos}" Value="False">
+                    <Setter Property="Visibility" Value="Collapsed"></Setter>
+                </DataTrigger>
+            </Style.Triggers>
+        </Style>
+        <Style TargetType="Image" x:Key="alergenosSojaImagen">
+            <Style.Triggers>
+                <DataTrigger Binding="{Binding Path=Soja}" Value="False">
+                    <Setter Property="Visibility" Value="Collapsed"></Setter>
+                </DataTrigger>
+            </Style.Triggers>
+        </Style>
+        <Style TargetType="StackPanel" x:Key="platoDisponible">
+            <Style.Triggers>
+                <DataTrigger Binding="{Binding ElementName=ListaPlatos, Path=SelectedIndex}" Value="-1">
+                    <Setter Property="IsEnabled" Value="False"></Setter>
+                </DataTrigger>
+            </Style.Triggers>
+        </Style>
+        <DataTemplate x:Key="PlantillaComida">
+            <Border BorderBrush="Black" BorderThickness="1" Margin="5" Background="White" Height="275" Width="225">
+                <Border.Effect>
+                    <DropShadowEffect/>
+                </Border.Effect>
+                <DockPanel >
+                    <TextBlock DockPanel.Dock="Top" Text="{Binding Path=Nombre}" Style="{StaticResource paisFuente}"></TextBlock>
+                    <DockPanel DockPanel.Dock="Bottom"  LastChildFill="False" Margin="05 0 05 0">
+                        <StackPanel DockPanel.Dock="Right" Orientation="Horizontal">
+                            <Image Height="25" Width="25" Source="/imagenes/gluten.png" Style="{StaticResource alergenosGlutenImagen}" />
+                            <Image Height="25" Width="25" Source="/imagenes/milk.png" Style="{StaticResource alergenosLecheImagen}" />
+                            <Image Height="25" Width="25" Source="/imagenes/soybean.png" Style="{StaticResource alergenosSulfiImagen}" />
+                            <Image Height="25" Width="25" Source="/imagenes/sulfide.png" Style="{StaticResource alergenosSojaImagen}" />
+                        </StackPanel>
+                        <Image Style="{StaticResource paisImagen}" DockPanel.Dock="Left" Height="50" Width="35"/>
+
+                    </DockPanel>
+                    <Image Source="{Binding Path=Imagen}"/>
+                </DockPanel>
+            </Border>
+        </DataTemplate>
+    </Window.Resources>
+    <Border Background="White" BorderBrush="Black" BorderThickness="1" Margin="10">
+        <DockPanel>
+            <StackPanel  Style="{StaticResource platoDisponible}" DockPanel.Dock="Right" Background="LightGray" Width="280" Margin="5 10 10 10">
+                <StackPanel Margin="10 5 10 5">
+                    <Label>Nombre del plato</Label>
+                    <TextBox Text="{Binding Path=PlatoSeleccionado.Nombre, UpdateSourceTrigger=PropertyChanged}"></TextBox>
+                </StackPanel>
+                <StackPanel Margin="10 5 10 5">
+                    <Label>Foto del plato</Label>
+                    <TextBox Text="{Binding Path=PlatoSeleccionado.Imagen, UpdateSourceTrigger=PropertyChanged}"></TextBox>
+                </StackPanel>
+                <StackPanel Margin="10 5 10 5">
+                    <Label>Pais del plato</Label>
+                    <ComboBox ItemsSource="{Binding Path=Tipos}" SelectedValue="{Binding Path=PlatoSeleccionado.Tipo}" ></ComboBox>
+                </StackPanel>
+                <GroupBox Header="Alérgenos" BorderBrush="Black" Margin="5">
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition></ColumnDefinition>
+                            <ColumnDefinition></ColumnDefinition>
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition></RowDefinition>
+                            <RowDefinition></RowDefinition>
+                        </Grid.RowDefinitions>
+                        <CheckBox IsChecked="{Binding Path=PlatoSeleccionado.Leche}" Grid.Row="0" Grid.Column="0" Margin="5">
+                            Leche
+                        </CheckBox>
+                        <CheckBox IsChecked="{Binding Path=PlatoSeleccionado.Gluten}" Grid.Row="1" Grid.Column="0" Margin="5">
+                            Gluten
+                        </CheckBox>
+                        <CheckBox IsChecked="{Binding Path=PlatoSeleccionado.Sulfitos}" Grid.Row="0" Grid.Column="1" Margin="5">
+                            Sulfitos
+                        </CheckBox>
+                        <CheckBox IsChecked="{Binding Path=PlatoSeleccionado.Soja}" Grid.Row="1" Grid.Column="1" Margin="5">
+                            Soja
+                        </CheckBox>
+                    </Grid>
+                </GroupBox>
+                <Button Margin="5 5 125 5" Click="LimpiarButton_Click">Limpiar Selección</Button>
+            </StackPanel>
+            <ListBox x:Name="ListaPlatos" ScrollViewer.VerticalScrollBarVisibility="Visible" SelectedItem="{Binding Path=PlatoSeleccionado}" ScrollViewer.HorizontalScrollBarVisibility="Disabled" ItemTemplate="{StaticResource PlantillaComida}" ItemsSource="{Binding Path=Platos}" Margin="10">
+                <ListBox.ItemsPanel>
+                    <ItemsPanelTemplate>
+                        <WrapPanel Orientation="Horizontal"></WrapPanel>
+                    </ItemsPanelTemplate>
+                </ListBox.ItemsPanel>
+            </ListBox>
+
+        </DockPanel>
+    </Border>
+</Window>
