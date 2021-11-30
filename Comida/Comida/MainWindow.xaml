@@ -11,7 +11,7 @@
         <Style TargetType="Image" x:Key="paisImagen">
             <Style.Triggers>
                 <DataTrigger Binding="{Binding Path=Tipo}" Value="Mexicana">
-                    <Setter Property="Source" Value="/imagenes/mexico.png"> </Setter>
+                    <Setter Property="Source" Value="/imagenes/mexico.png"></Setter>
                 </DataTrigger>
                 <DataTrigger Binding="{Binding Path=Tipo}" Value="Americana">
                     <Setter Property="Source" Value="/imagenes/united_states.png"></Setter>
@@ -92,23 +92,168 @@
                 </DockPanel>
             </Border>
         </DataTemplate>
+        <ControlTemplate x:Key="CuadrosDeTextoRedondeadoTemplate" TargetType="{x:Type TextBox}">
+            <Border CornerRadius="5" Padding="3"  x:Name="border" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" Background="{TemplateBinding Background}" SnapsToDevicePixels="True">
+                <ScrollViewer x:Name="PART_ContentHost" Focusable="False" HorizontalScrollBarVisibility="Hidden" VerticalScrollBarVisibility="Hidden"/>
+
+            </Border>
+            <ControlTemplate.Triggers>
+
+                <Trigger Property="IsEnabled" Value="False">
+                    <Setter Property="Opacity" TargetName="border" Value="0.56"/>
+                </Trigger>
+                <Trigger Property="IsMouseOver" Value="True">
+                    <Setter Property="BorderBrush" TargetName="border" Value="#FF7EB4EA"/>
+                </Trigger>
+                <Trigger Property="IsKeyboardFocused" Value="True">
+                    <Setter Property="BorderBrush" TargetName="border" Value="#FF569DE5"/>
+                    <Setter Property="Effect">
+                        <Setter.Value>
+                            <DropShadowEffect/>
+                        </Setter.Value>
+                    </Setter>
+                </Trigger>
+            </ControlTemplate.Triggers>
+        </ControlTemplate>
+        <ControlTemplate x:Key="GroupBoxTemplate1" TargetType="{x:Type GroupBox}">
+            <Grid SnapsToDevicePixels="True">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="6"/>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="6"/>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="6"/>
+                </Grid.RowDefinitions>
+                <Border BorderBrush="Transparent" BorderThickness="{TemplateBinding BorderThickness}" Background="{TemplateBinding Background}" Grid.ColumnSpan="4" Grid.Column="0" CornerRadius="0" Grid.Row="1" Grid.RowSpan="3"/>
+                <Border BorderThickness="{TemplateBinding BorderThickness}" Grid.ColumnSpan="4" CornerRadius="0" Grid.Row="1" Grid.RowSpan="3">
+                    <Border.OpacityMask>
+                        <MultiBinding ConverterParameter="7" UpdateSourceTrigger="Default">
+                            <MultiBinding.Converter>
+                                <BorderGapMaskConverter/>
+                            </MultiBinding.Converter>
+                            <Binding ElementName="Header" Path="ActualWidth"/>
+                            <Binding Path="ActualWidth" RelativeSource="{RelativeSource Self}"/>
+                            <Binding Path="ActualHeight" RelativeSource="{RelativeSource Self}"/>
+                        </MultiBinding>
+                    </Border.OpacityMask>
+                    <Border BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" CornerRadius="0">
+                    </Border>
+                </Border>
+                <Border x:Name="Header" Grid.Column="1" Padding="3,1,3,0" Grid.Row="0" Grid.RowSpan="2">
+                    <ContentPresenter ContentTemplate="{TemplateBinding HeaderTemplate}" Content="{TemplateBinding Header}" ContentStringFormat="{TemplateBinding HeaderStringFormat}" ContentSource="Header" RecognizesAccessKey="True" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}"/>
+                </Border>
+                <ContentPresenter Grid.ColumnSpan="2" ContentTemplate="{TemplateBinding ContentTemplate}" Content="{TemplateBinding Content}" Grid.Column="1" ContentStringFormat="{TemplateBinding ContentStringFormat}" Margin="{TemplateBinding Padding}" Grid.Row="2" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}"/>
+            </Grid>
+        </ControlTemplate>
+        <ControlTemplate x:Key="CheckBoxControlTemplate" TargetType="{x:Type CheckBox}">
+            <Grid x:Name="templateRoot" Background="Transparent" SnapsToDevicePixels="True">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <Border x:Name="checkBoxBorder" Padding="2" CornerRadius="5" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" Background="{TemplateBinding Background}" HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" Margin="1" VerticalAlignment="{TemplateBinding VerticalContentAlignment}">
+                    <Grid x:Name="markGrid">
+                        <Path x:Name="optionMark" Data="F1M9.97498,1.22334L4.6983,9.09834 4.52164,9.09834 0,5.19331 1.27664,3.52165 4.255,6.08833 8.33331,1.52588E-05 9.97498,1.22334z" Fill="#FF212121" Margin="1" Opacity="0" Stretch="None"/>
+                        <Rectangle x:Name="indeterminateMark" Fill="#FF212121" Margin="2" Opacity="0"/>
+                    </Grid>
+                </Border>
+                <ContentPresenter x:Name="contentPresenter" ContentTemplate="{TemplateBinding ContentTemplate}" Content="{TemplateBinding Content}" Grid.Column="1" ContentStringFormat="{TemplateBinding ContentStringFormat}" Focusable="False" HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" Margin="{TemplateBinding Padding}" RecognizesAccessKey="True" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}"/>
+            </Grid>
+            <ControlTemplate.Triggers>
+                <Trigger Property="HasContent" Value="True">
+                    <Setter Property="FocusVisualStyle">
+                        <Setter.Value>
+                            <Style>
+                                <Setter Property="Control.Template">
+                                    <Setter.Value>
+                                        <ControlTemplate>
+                                            <Rectangle  Margin="14,0,0,0" SnapsToDevicePixels="True"  Stroke="{DynamicResource {x:Static SystemColors.ControlTextBrushKey}}" StrokeThickness="1" StrokeDashArray="1 2"/>
+                                        </ControlTemplate>
+                                    </Setter.Value>
+                                </Setter>
+                            </Style>
+                        </Setter.Value>
+                    </Setter>
+                    <Setter Property="Padding" Value="4,-1,0,0"/>
+                </Trigger>
+                <Trigger Property="IsMouseOver" Value="True">
+                    <Setter Property="Background" TargetName="checkBoxBorder" Value="#FFF3F9FF"/>
+                    <Setter Property="BorderBrush" TargetName="checkBoxBorder" Value="#FF5593FF"/>
+                    <Setter Property="Fill" TargetName="optionMark" Value="Green"/>
+                    <Setter Property="Fill" TargetName="indeterminateMark" Value="Green"/>
+                </Trigger>
+                <Trigger Property="IsEnabled" Value="False">
+                    <Setter Property="Background" TargetName="checkBoxBorder" Value="#FFE6E6E6"/>
+                    <Setter Property="BorderBrush" TargetName="checkBoxBorder" Value="#FFBCBCBC"/>
+                    <Setter Property="Fill" TargetName="optionMark" Value="Green"/>
+                    <Setter Property="Fill" TargetName="indeterminateMark" Value="Green"/>
+                </Trigger>
+                <Trigger Property="IsPressed" Value="True">
+                    <Setter Property="Background" TargetName="checkBoxBorder" Value="#FFD9ECFF"/>
+                    <Setter Property="BorderBrush" TargetName="checkBoxBorder" Value="#FF3C77DD"/>
+                    <Setter Property="Fill" TargetName="optionMark" Value="Green"/>
+                    <Setter Property="Fill" TargetName="indeterminateMark" Value="Green"/>
+                </Trigger>
+                <Trigger Property="IsChecked" Value="True">
+                    <Setter Property="Opacity" TargetName="optionMark" Value="1"/>
+                    <Setter Property="Fill" TargetName="optionMark" Value="Green"/>
+                    <Setter Property="Opacity" TargetName="indeterminateMark" Value="0"/>
+                </Trigger>
+                <Trigger Property="IsChecked" Value="{x:Null}">
+                    <Setter Property="Opacity" TargetName="optionMark" Value="0"/>
+                    <Setter Property="Opacity" TargetName="indeterminateMark" Value="1"/>
+                </Trigger>
+            </ControlTemplate.Triggers>
+        </ControlTemplate>
+        <ControlTemplate x:Key="ButtonControlTemplate1" TargetType="{x:Type Button}">
+            <Border CornerRadius="7" x:Name="border" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" Background="{TemplateBinding Background}" SnapsToDevicePixels="True">
+                <ContentPresenter x:Name="contentPresenter" ContentTemplate="{TemplateBinding ContentTemplate}" Content="{TemplateBinding Content}" ContentStringFormat="{TemplateBinding ContentStringFormat}" Focusable="False" HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" Margin="{TemplateBinding Padding}" RecognizesAccessKey="True" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}"/>
+            </Border>
+            <ControlTemplate.Triggers>
+                <Trigger Property="IsDefaulted" Value="True">
+                    <Setter Property="BorderBrush" TargetName="border" Value="{DynamicResource {x:Static SystemColors.HighlightBrushKey}}"/>
+                </Trigger>
+                <Trigger Property="IsMouseOver" Value="True">
+                    <Setter Property="Background" TargetName="border" Value="#FFBEE6FD"/>
+                    <Setter Property="BorderBrush" TargetName="border" Value="#FF3C7FB1"/>
+                </Trigger>
+                <Trigger Property="IsPressed" Value="True">
+                    <Setter Property="Background" TargetName="border" Value="#FFC4E5F6"/>
+                    <Setter Property="BorderBrush" TargetName="border" Value="#FF2C628B"/>
+                </Trigger>
+                <Trigger Property="ToggleButton.IsChecked" Value="True">
+                    <Setter Property="Background" TargetName="border" Value="#FFBCDDEE"/>
+                    <Setter Property="BorderBrush" TargetName="border" Value="#FF245A83"/>
+                </Trigger>
+                <Trigger Property="IsEnabled" Value="False">
+                    <Setter Property="Background" TargetName="border" Value="#FFF4F4F4"/>
+                    <Setter Property="BorderBrush" TargetName="border" Value="#FFADB2B5"/>
+                    <Setter Property="Foreground" Value="#FF838383"/>
+                </Trigger>
+            </ControlTemplate.Triggers>
+        </ControlTemplate>
     </Window.Resources>
     <Border Background="White" BorderBrush="Black" BorderThickness="1" Margin="10">
         <DockPanel>
             <StackPanel  Style="{StaticResource platoDisponible}" DockPanel.Dock="Right" Background="LightGray" Width="280" Margin="5 10 10 10">
                 <StackPanel Margin="10 5 10 5">
                     <Label>Nombre del plato</Label>
-                    <TextBox Text="{Binding Path=PlatoSeleccionado.Nombre, UpdateSourceTrigger=PropertyChanged}"></TextBox>
+                    <TextBox Text="{Binding Path=PlatoSeleccionado.Nombre, UpdateSourceTrigger=PropertyChanged}"  Template="{DynamicResource CuadrosDeTextoRedondeadoTemplate}"></TextBox>
                 </StackPanel>
                 <StackPanel Margin="10 5 10 5">
                     <Label>Foto del plato</Label>
-                    <TextBox Text="{Binding Path=PlatoSeleccionado.Imagen, UpdateSourceTrigger=PropertyChanged}"></TextBox>
+                    <TextBox Text="{Binding Path=PlatoSeleccionado.Imagen, UpdateSourceTrigger=PropertyChanged}" Template="{DynamicResource CuadrosDeTextoRedondeadoTemplate}"></TextBox>
                 </StackPanel>
                 <StackPanel Margin="10 5 10 5">
                     <Label>Pais del plato</Label>
                     <ComboBox ItemsSource="{Binding Path=Tipos}" SelectedValue="{Binding Path=PlatoSeleccionado.Tipo}" ></ComboBox>
                 </StackPanel>
-                <GroupBox Header="Alérgenos" BorderBrush="Black" Margin="5">
+                <GroupBox Header="Alérgenos" BorderBrush="Black" Margin="5" Template="{DynamicResource GroupBoxTemplate1}">
                     <Grid>
                         <Grid.ColumnDefinitions>
                             <ColumnDefinition></ColumnDefinition>
@@ -118,21 +263,21 @@
                             <RowDefinition></RowDefinition>
                             <RowDefinition></RowDefinition>
                         </Grid.RowDefinitions>
-                        <CheckBox IsChecked="{Binding Path=PlatoSeleccionado.Leche}" Grid.Row="0" Grid.Column="0" Margin="5">
+                        <CheckBox IsChecked="{Binding Path=PlatoSeleccionado.Leche}" Grid.Row="0" Grid.Column="0" Margin="5" Template="{DynamicResource CheckBoxControlTemplate}">
                             Leche
                         </CheckBox>
-                        <CheckBox IsChecked="{Binding Path=PlatoSeleccionado.Gluten}" Grid.Row="1" Grid.Column="0" Margin="5">
+                        <CheckBox IsChecked="{Binding Path=PlatoSeleccionado.Gluten}" Grid.Row="1" Grid.Column="0" Margin="5" Template="{DynamicResource CheckBoxControlTemplate}">
                             Gluten
                         </CheckBox>
-                        <CheckBox IsChecked="{Binding Path=PlatoSeleccionado.Sulfitos}" Grid.Row="0" Grid.Column="1" Margin="5">
+                        <CheckBox IsChecked="{Binding Path=PlatoSeleccionado.Sulfitos}" Grid.Row="0" Grid.Column="1" Margin="5" Template="{DynamicResource CheckBoxControlTemplate}">
                             Sulfitos
                         </CheckBox>
-                        <CheckBox IsChecked="{Binding Path=PlatoSeleccionado.Soja}" Grid.Row="1" Grid.Column="1" Margin="5">
+                        <CheckBox IsChecked="{Binding Path=PlatoSeleccionado.Soja}" Grid.Row="1" Grid.Column="1" Margin="5" Template="{DynamicResource CheckBoxControlTemplate}">
                             Soja
                         </CheckBox>
                     </Grid>
                 </GroupBox>
-                <Button Margin="5 5 125 5" Click="LimpiarButton_Click">Limpiar Selección</Button>
+                <Button Margin="5 5 125 5" Click="LimpiarButton_Click" Template="{DynamicResource ButtonControlTemplate1}">Limpiar Selección</Button>
             </StackPanel>
             <ListBox x:Name="ListaPlatos" ScrollViewer.VerticalScrollBarVisibility="Visible" SelectedItem="{Binding Path=PlatoSeleccionado}" ScrollViewer.HorizontalScrollBarVisibility="Disabled" ItemTemplate="{StaticResource PlantillaComida}" ItemsSource="{Binding Path=Platos}" Margin="10">
                 <ListBox.ItemsPanel>

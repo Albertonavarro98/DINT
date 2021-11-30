@@ -59,5 +59,9 @@ namespace Comida
             this.PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
 
+        public void borrarPlato() 
+        {
+            PlatoSeleccionado = null;
+        }
     }
 }

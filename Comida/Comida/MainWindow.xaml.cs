@@ -31,7 +31,7 @@ namespace Comida
 
         private void LimpiarButton_Click(object sender, RoutedEventArgs e)
         {
-            ListaPlatos.SelectedIndex = -1;
+            VM.borrarPlato();
         }
     }
     
