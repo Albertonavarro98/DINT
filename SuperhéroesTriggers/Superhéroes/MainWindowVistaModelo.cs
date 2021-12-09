@@ -1,4 +1,5 @@
-﻿using Superheroes;
+﻿using Microsoft.Toolkit.Mvvm.ComponentModel;
+using Superheroes;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -8,8 +9,9 @@ using System.Threading.Tasks;
 
 namespace Superhéroes
 {
-    class MainWindowVistaModelo : INotifyPropertyChanged
+    class MainWindowVistaModelo : ObservableObject
     {
+        private Superheroe servicio;
         private List<Superheroe> lista;
         private int totalHeroes;
         private int posicionActual;

@@ -1,7 +1,8 @@
+using Microsoft.Toolkit.Mvvm.ComponentModel;
 using System.Collections.Generic;
 namespace Superheroes
 {
-    class Superheroe
+    class Superheroe : ObservableObject
     {
         public string Nombre { get; set; }
         public string Imagen { get; set; }

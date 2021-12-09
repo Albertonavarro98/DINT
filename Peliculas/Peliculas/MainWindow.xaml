@@ -1,0 +1,133 @@
+﻿<Window x:Class="Peliculas.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Peliculas"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800" MinHeight="425" MinWidth="750">
+    <TabControl Margin="5">
+        <TabItem Header="Jugar">
+            <DockPanel>
+
+                <Border DockPanel.Dock="Bottom" BorderThickness="1" BorderBrush="LightGray">
+                    <StackPanel Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Center">
+                        <Image Source="/Recursos/img/40.png" Width="40" Height="40" RenderTransformOrigin="0.5,0.5">
+                            <Image.RenderTransform>
+                                <ScaleTransform ScaleX="-1" />
+                            </Image.RenderTransform>
+                        </Image>
+                        <Label VerticalAlignment="Center" FontSize="18">7</Label>
+                        <Image Source="/Recursos/img/40.png" Width="40" Height="40"/>
+                    </StackPanel>
+                </Border>
+                <Grid DockPanel.Dock="Top">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition></ColumnDefinition>
+                        <ColumnDefinition></ColumnDefinition>
+                    </Grid.ColumnDefinitions>
+                    <Border DockPanel.Dock="Right" BorderThickness="1" BorderBrush="LightGray" Grid.Column="1">
+                        <Grid Margin="5">
+                            <Grid.RowDefinitions>
+                                <RowDefinition></RowDefinition>
+                                <RowDefinition></RowDefinition>
+                                <RowDefinition></RowDefinition>
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition></ColumnDefinition>
+                                <ColumnDefinition></ColumnDefinition>
+                            </Grid.ColumnDefinitions>
+                            <DockPanel Grid.Row="2" Grid.ColumnSpan="3">
+                                <CheckBox x:Name="VisibilidadCheckBox" DockPanel.Dock="Top" Margin="5">Ver pista</CheckBox>
+                                <Label DockPanel.Dock="Top"></Label>
+                                <Viewbox VerticalAlignment="Center" HorizontalAlignment="Center">
+                                    <Image></Image>
+                                </Viewbox>
+                            </DockPanel>
+                            <Viewbox  Grid.Row="0" Grid.Column="0" Margin="10" VerticalAlignment="Center">
+                                <DockPanel HorizontalAlignment="Left" VerticalAlignment="Center">
+                                    <Label DockPanel.Dock="Top">Puntuación</Label>
+                                    <Border BorderBrush="Black" BorderThickness="1" CornerRadius="2" DockPanel.Dock="Bottom">
+                                        <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" Padding="2.5">
+                                3
+                                        </TextBlock>
+                                    </Border>
+                                </DockPanel>
+
+                            </Viewbox>
+                            <StackPanel Grid.Column="2" Grid.Row="0" VerticalAlignment="Center">
+                                <Button Margin="5" Height="25" Width="135">Nueva Partida</Button>
+                                <Button Margin="5" Height="25" Width="135">Finalizar Partida</Button>
+                            </StackPanel>
+                            <DockPanel Grid.Row="1" Grid.ColumnSpan="3" VerticalAlignment="Bottom">
+                                <Label DockPanel.Dock="Top">Titulo de la pelicula</Label>
+                                <Button Height="25" Width="75" DockPanel.Dock="Right" Margin="5 0 5 5">Validar</Button>
+                                <TextBox Height="25" DockPanel.Dock="Left" Margin="5 0 5 5"></TextBox>
+                            </DockPanel>
+                        </Grid>
+                    </Border>
+                    <Border DockPanel.Dock="Left" BorderThickness="1" BorderBrush="LightGray" Grid.Column="0">
+                        <Viewbox Margin="5"></Viewbox>
+                    </Border>
+                </Grid>
+            </DockPanel>
+        </TabItem>
+        <TabItem Header="Gestionar">
+            <DockPanel>
+                <Grid DockPanel.Dock="Bottom" Margin="5">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                    </Grid.ColumnDefinitions>
+                    <Label VerticalAlignment="Center"  Margin="05 05 0 05" Grid.Column="0">Nivel de Dificultad</Label>
+                    <ComboBox VerticalAlignment="Center"  Grid.Column="1" HorizontalAlignment="Center" Width="150"> aaaa </ComboBox>
+                    <StackPanel Grid.Column="2" Orientation="Horizontal" VerticalAlignment="Center">
+                        <Label>Género</Label>
+                        <ComboBox Width="120" VerticalAlignment="Center"></ComboBox>
+                    </StackPanel>
+                </Grid>
+                <DockPanel DockPanel.Dock="Right">
+                    <StackPanel Margin="5" DockPanel.Dock="Top">
+                        <Button Height="21" Width="120" Margin="5">Cargar JSON</Button>
+                        <Button Height="21" Width="120" Margin="5">Guardar JSON</Button>
+                    </StackPanel>
+                    <Button DockPanel.Dock="Bottom" Margin="10 0 010 017"> Examinar </Button>
+                    <StackPanel Margin="5">
+                        <Button Height="21" Width="120" Margin="5">Añadir Película</Button>
+                        <Button Height="21" Width="120" Margin="5">Editar Película</Button>
+                        <Button Height="21" Width="120" Margin="5">Elimiar Película</Button>
+                    </StackPanel>
+                </DockPanel>
+                <Grid DockPanel.Dock="Bottom" Margin="10">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                    </Grid.RowDefinitions>
+                    <Label Grid.Row="0" Margin="0 05 0 05" Grid.Column="0">Título de la película</Label>
+                    <TextBox Grid.Row="0" Grid.Column="1" Grid.ColumnSpan="2" Margin="0 05 0 05"></TextBox>
+                    <Label Margin="0 05 0 05" Grid.Row="1" Grid.Column="0">Pista de la película</Label>
+                    <TextBox Grid.Row="1" Margin="0 05 0 05" Grid.Column="1" Grid.ColumnSpan="2"></TextBox>
+                    <Label Margin="0 05 0 05" Grid.Row="3" Grid.Column="0">Imágen de la película</Label>
+                    <TextBox Grid.Row="3" Margin="0 05 0 05" Grid.Column="1" Grid.ColumnSpan="2"></TextBox>
+                </Grid>
+                <ListBox x:Name="ListaPlatos" ScrollViewer.VerticalScrollBarVisibility="Visible" ScrollViewer.HorizontalScrollBarVisibility="Disabled" Margin="10">
+                    <ListBox.ItemsPanel>
+                        <ItemsPanelTemplate>
+                            <WrapPanel Orientation="Horizontal"></WrapPanel>
+                        </ItemsPanelTemplate>
+                    </ListBox.ItemsPanel>
+                </ListBox>
+            </DockPanel>
+           
+        </TabItem>
+    </TabControl>
+</Window>
