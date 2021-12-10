@@ -44,8 +44,8 @@
                                     <Image></Image>
                                 </Viewbox>
                             </DockPanel>
-                            <Viewbox  Grid.Row="0" Grid.Column="0" Margin="10" VerticalAlignment="Center">
-                                <DockPanel HorizontalAlignment="Left" VerticalAlignment="Center">
+                            <Viewbox  Grid.Row="0" Grid.Column="0" Margin="10 5 5 20" >
+                                <DockPanel HorizontalAlignment="Left">
                                     <Label DockPanel.Dock="Top">Puntuación</Label>
                                     <Border BorderBrush="Black" BorderThickness="1" CornerRadius="2" DockPanel.Dock="Bottom">
                                         <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" Padding="2.5">
@@ -67,7 +67,11 @@
                         </Grid>
                     </Border>
                     <Border DockPanel.Dock="Left" BorderThickness="1" BorderBrush="LightGray" Grid.Column="0">
-                        <Viewbox Margin="5"></Viewbox>
+                        <Viewbox Margin="5">
+                            <Image>
+                                
+                            </Image>
+                        </Viewbox>
                     </Border>
                 </Grid>
             </DockPanel>
