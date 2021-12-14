@@ -3,27 +3,30 @@ using System.IO;
 using System.Windows;
 using Microsoft.Win32;
 
-public partial class OpenFileDialogMultipleFilesSample
+namespace Peliculas
 {
-    private string OpenDialog()
+    public partial class OpenFileDialogMultipleFilesSample
     {
-        OpenFileDialog openFileDialog = new OpenFileDialog();
-        openFileDialog.Filter = "Json files (*.json)|*.json|All files (*.*)|*.*";
-        if (openFileDialog.ShowDialog() == true)
+        private string OpenDialog()
         {
-            return openFileDialog.FileName;
+            OpenFileDialog openFileDialog = new OpenFileDialog();
+            openFileDialog.Filter = "Json files (*.json)|*.json|All files (*.*)|*.*";
+            if (openFileDialog.ShowDialog() == true)
+            {
+                return openFileDialog.FileName;
+            }
+            return null;
         }
-        return null;
-    }
 
-    private string SaveDialog(object sender, RoutedEventArgs e)
-    {
-        SaveFileDialog saveFileDialog = new SaveFileDialog();
-        if (saveFileDialog.ShowDialog() == true)
+        private string SaveDialog(object sender, RoutedEventArgs e)
         {
-            return saveFileDialog.FileName;
+            SaveFileDialog saveFileDialog = new SaveFileDialog();
+            if (saveFileDialog.ShowDialog() == true)
+            {
+                return saveFileDialog.FileName;
+            }
+            return null;
         }
-        return null;
     }
 }
 

@@ -20,9 +20,22 @@ namespace Peliculas
     /// </summary>
     public partial class MainWindow : Window
     {
+        MainWindowVM vm = new MainWindowVM();
         public MainWindow()
         {
-            InitializeComponent();
+            InitializeComponent(); 
+            this.DataContext = vm;
         }
+
+        private void ButtonFlechaAtras_Click(object sender, RoutedEventArgs e)
+        {
+            vm.Retroceder();
+        }
+        private void ButtonFlechaAlante_Click(object sender, RoutedEventArgs e)
+        {
+            vm.Avanzar();
+        }
+
+
     }
 }

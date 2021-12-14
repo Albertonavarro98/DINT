@@ -5,20 +5,48 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Peliculas"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800" MinHeight="425" MinWidth="750">
+        Title="Juego de películas" Icon="/Recursos/img/128.ico" Height="450" Width="800" MinHeight="425" MinWidth="750">
+    <Window.Background>
+        <ImageBrush ImageSource="/Recursos/img/film2.jpg" Stretch="Fill"></ImageBrush>
+    </Window.Background>
+    <Window.Resources>
+        <Style TargetType="Image" x:Key="GeneroImagen">
+            <Style.Triggers>
+                <DataTrigger Binding="{Binding Path=PeliculaActual.Genero}" Value="Terror">
+                    <Setter Property="Source" Value="/Recursos/generos/terror.png"/>
+                </DataTrigger>
+                <DataTrigger Binding="{Binding Path=PeliculaActual.Genero}" Value="Comedia">
+                    <Setter Property="Source" Value="/Recursos/generos/comedia.ico"/>
+                </DataTrigger>
+                <DataTrigger Binding="{Binding Path=PeliculaActual.Genero}" Value="Ciencia-Ficción">
+                    <Setter Property="Source" Value="/Recursos/generos/comedia.ico"/>
+                </DataTrigger>
+                <DataTrigger Binding="{Binding Path=PeliculaActual.Genero}" Value="Drama">
+                    <Setter Property="Source" Value="/Recursos/generos/drama.png"/>
+                </DataTrigger>
+                <DataTrigger Binding="{Binding Path=PeliculaActual.Genero}" Value="Acción">
+                    <Setter Property="Source" Value="/Recursos/generos/Accion.ico"/>
+                </DataTrigger>
+            </Style.Triggers>
+        </Style>
+    </Window.Resources>
     <TabControl Margin="5">
         <TabItem Header="Jugar">
             <DockPanel>
 
                 <Border DockPanel.Dock="Bottom" BorderThickness="1" BorderBrush="LightGray">
                     <StackPanel Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Center">
-                        <Image Source="/Recursos/img/40.png" Width="40" Height="40" RenderTransformOrigin="0.5,0.5">
-                            <Image.RenderTransform>
-                                <ScaleTransform ScaleX="-1" />
-                            </Image.RenderTransform>
-                        </Image>
-                        <Label VerticalAlignment="Center" FontSize="18">7</Label>
-                        <Image Source="/Recursos/img/40.png" Width="40" Height="40"/>
+                        <Button  Click="ButtonFlechaAtras_Click"  Background="Transparent"  BorderBrush="Transparent">
+                            <Image Source="/Recursos/img/40.png" Width="40" Height="40" RenderTransformOrigin="0.5,0.5">
+                                <Image.RenderTransform>
+                                    <ScaleTransform ScaleX="-1" />
+                                </Image.RenderTransform>
+                            </Image>
+                        </Button>
+                        <Label VerticalAlignment="Center" FontSize="18" Content="{Binding Path=PosicionActual}"></Label>
+                        <Button  Click="ButtonFlechaAlante_Click"  Background="Transparent"  BorderBrush="Transparent" >
+                            <Image Source="/Recursos/img/40.png" Width="40" Height="40"/>
+                        </Button>
                     </StackPanel>
                 </Border>
                 <Grid DockPanel.Dock="Top">
@@ -38,10 +66,10 @@
                                 <ColumnDefinition></ColumnDefinition>
                             </Grid.ColumnDefinitions>
                             <DockPanel Grid.Row="2" Grid.ColumnSpan="3">
-                                <CheckBox x:Name="VisibilidadCheckBox" DockPanel.Dock="Top" Margin="5">Ver pista</CheckBox>
-                                <Label DockPanel.Dock="Top"></Label>
+                                <CheckBox x:Name="VisibilidadCheckBox" DockPanel.Dock="Top" Margin="5 10 10 0">Ver pista</CheckBox>
+                                <Label x:Name="NombrePista" HorizontalAlignment="Center" DockPanel.Dock="Bottom" Content="{Binding Path=PeliculaActual.Genero}"></Label>
                                 <Viewbox VerticalAlignment="Center" HorizontalAlignment="Center">
-                                    <Image></Image>
+                                    <Image Height="25" Width="25" Style="{StaticResource GeneroImagen}"></Image>
                                 </Viewbox>
                             </DockPanel>
                             <Viewbox  Grid.Row="0" Grid.Column="0" Margin="10 5 5 20" >
@@ -59,17 +87,19 @@
                                 <Button Margin="5" Height="25" Width="135">Nueva Partida</Button>
                                 <Button Margin="5" Height="25" Width="135">Finalizar Partida</Button>
                             </StackPanel>
-                            <DockPanel Grid.Row="1" Grid.ColumnSpan="3" VerticalAlignment="Bottom">
-                                <Label DockPanel.Dock="Top">Titulo de la pelicula</Label>
-                                <Button Height="25" Width="75" DockPanel.Dock="Right" Margin="5 0 5 5">Validar</Button>
-                                <TextBox Height="25" DockPanel.Dock="Left" Margin="5 0 5 5"></TextBox>
-                            </DockPanel>
+                            <Border Grid.Row="1" Grid.ColumnSpan="3" VerticalAlignment="Bottom" BorderBrush="Gray" BorderThickness="0 01 0 01">
+                                <DockPanel>
+                                    <Label DockPanel.Dock="Top">Titulo de la pelicula</Label>
+                                    <Button Height="25" Width="75" DockPanel.Dock="Right" Margin="5 0 5 5">Validar</Button>
+                                    <TextBox Height="25" DockPanel.Dock="Left" Margin="5 0 5 5"></TextBox>
+                                </DockPanel>
+                            </Border>
                         </Grid>
                     </Border>
                     <Border DockPanel.Dock="Left" BorderThickness="1" BorderBrush="LightGray" Grid.Column="0">
                         <Viewbox Margin="5">
                             <Image>
-                                
+
                             </Image>
                         </Viewbox>
                     </Border>
@@ -86,7 +116,7 @@
                         <ColumnDefinition/>
                     </Grid.ColumnDefinitions>
                     <Label VerticalAlignment="Center"  Margin="05 05 0 05" Grid.Column="0">Nivel de Dificultad</Label>
-                    <ComboBox VerticalAlignment="Center"  Grid.Column="1" HorizontalAlignment="Center" Width="150"> aaaa </ComboBox>
+                    <ComboBox VerticalAlignment="Center"  Grid.Column="1" HorizontalAlignment="Center" Width="150">aaaa</ComboBox>
                     <StackPanel Grid.Column="2" Orientation="Horizontal" VerticalAlignment="Center">
                         <Label>Género</Label>
                         <ComboBox Width="120" VerticalAlignment="Center"></ComboBox>
@@ -97,7 +127,7 @@
                         <Button Height="21" Width="120" Margin="5">Cargar JSON</Button>
                         <Button Height="21" Width="120" Margin="5">Guardar JSON</Button>
                     </StackPanel>
-                    <Button DockPanel.Dock="Bottom" Margin="10 0 010 017"> Examinar </Button>
+                    <Button DockPanel.Dock="Bottom" Margin="10 0 010 017">Examinar</Button>
                     <StackPanel Margin="5">
                         <Button Height="21" Width="120" Margin="5">Añadir Película</Button>
                         <Button Height="21" Width="120" Margin="5">Editar Película</Button>
@@ -131,7 +161,7 @@
                     </ListBox.ItemsPanel>
                 </ListBox>
             </DockPanel>
-           
+
         </TabItem>
     </TabControl>
 </Window>

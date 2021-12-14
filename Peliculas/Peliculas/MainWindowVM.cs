@@ -10,18 +10,19 @@ namespace Peliculas
 {
     class MainWindowVM : ObservableObject
     {
+        JsonService serviciojson = new JsonService();
         
-        private Pelicula pelicualaActual;
+        private Pelicula peliculaActual;
 
-        public Pelicula PelicualaActual
+        public Pelicula PeliculaActual
         {
-            get { return pelicualaActual; }
-            set { SetProperty(ref pelicualaActual, value); }
+            get { return peliculaActual; }
+            set { SetProperty(ref peliculaActual, value); }
         }
 
         private ObservableCollection<Pelicula> peliculas;
 
-        public ObservableCollection<Pelicula> Pelicualas
+        public ObservableCollection<Pelicula> Peliculas
         {
             get { return peliculas; }
             set { SetProperty(ref peliculas, value); }
@@ -29,17 +30,28 @@ namespace Peliculas
 
         public MainWindowVM()
         {
-            //peliculas = Pelicula.GetSamples(@"C:\Users\alumno\source\repos\Comida\Comida\FotosPlatos");
+            peliculas = serviciojson.Importar("../../Datos/peliculas.json");
             Partida partida = new Partida();
+            PosicionActual = 1;
+            Totalpelis = peliculas.Count();
+            PeliculaActual = Peliculas[PosicionActual - 1];
         }
 
-        public string[] generos = new string[] { "comedia", "drama" , "acción", "terror", "ciencia-ficción" };
+        public string[] generos = new string[] { "Comedia", "Drama" , "Acción", "Terror", "Ciencia-Ficción" };
 
         public string[] Generos
         {
             get { return generos; }
             set { SetProperty(ref generos, value); }
         }
+
+        private int totalpelis;
+        private int posicionActual;
+
+        public int PosicionActual { get => posicionActual; set { SetProperty(ref posicionActual, value); ; } }
+        public int Totalpelis { get => totalpelis; set { SetProperty(ref totalpelis, value); } }
+        public void Avanzar() { if (PosicionActual < Totalpelis) { PosicionActual++; PeliculaActual = Peliculas[PosicionActual - 1]; } }
+        public void Retroceder() { if (PosicionActual > 1) { PosicionActual--; PeliculaActual = Peliculas[PosicionActual - 1]; } }
 
     }
 }

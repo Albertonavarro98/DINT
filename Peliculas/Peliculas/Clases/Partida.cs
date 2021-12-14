@@ -6,37 +6,40 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-class Partida : ObservableObject
+namespace Peliculas
 {
-    public int puntuacion;
-    ObservableCollection<Pelicula> peliculasPartida;
-    ObservableCollection<Pelicula> peliculasAcertadas;
-
-    public int Puntuacion 
+    class Partida : ObservableObject
     {
-        get { return puntuacion; }
-        set { SetProperty(ref puntuacion, value); }
+        public int puntuacion;
+        ObservableCollection<Pelicula> peliculasPartida;
+        ObservableCollection<Pelicula> peliculasAcertadas;
+
+        public int Puntuacion
+        {
+            get { return puntuacion; }
+            set { SetProperty(ref puntuacion, value); }
+        }
+
+        public ObservableCollection<Pelicula> PeliculasPartida
+        {
+            get { return peliculasPartida; }
+            set { SetProperty(ref peliculasPartida, value); }
+        }
+
+        public ObservableCollection<Pelicula> PeliculasAcertadas
+        {
+            get { return peliculasAcertadas; }
+            set { SetProperty(ref peliculasAcertadas, value); }
+        }
+
+        public Partida() { }
+
+        public Partida(int Puntuacion, ObservableCollection<Pelicula> peliculasPartida, ObservableCollection<Pelicula> peliculasAcertadas)
+        {
+            puntuacion = Puntuacion;
+            this.peliculasPartida = peliculasPartida;
+            this.peliculasAcertadas = peliculasAcertadas;
+        }
     }
 
-    public ObservableCollection<Pelicula> PeliculasPartida
-    {
-        get { return peliculasPartida; }
-        set { SetProperty(ref peliculasPartida, value); }
-    }
-
-    public ObservableCollection<Pelicula> PeliculasAcertadas
-    {
-        get { return peliculasAcertadas; }
-        set { SetProperty(ref peliculasAcertadas, value); }
-    }
-
-    public Partida() { }
-
-    public Partida(int Puntuacion, ObservableCollection<Pelicula> peliculasPartida, ObservableCollection<Pelicula> peliculasAcertadas)
-    {
-        puntuacion = Puntuacion;
-        this.peliculasPartida = peliculasPartida;
-        this.peliculasAcertadas = peliculasAcertadas;
-    }
 }
-

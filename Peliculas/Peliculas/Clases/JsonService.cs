@@ -8,20 +8,22 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-class JsonService : ObservableObject
+namespace Peliculas
 {
-    ObservableCollection<Pelicula> lista = new ObservableCollection<Pelicula>();
-
-    public void Exportar(string ruta)
+    class JsonService : ObservableObject
     {
-        string peliculasJson = JsonConvert.SerializeObject(lista);
-        File.WriteAllText(ruta, peliculasJson);
-    }
-    public void Importar(string ruta)
-    {
-        string peliculasJson = File.ReadAllText(ruta);
-        lista = JsonConvert.DeserializeObject<ObservableCollection<Pelicula>>(peliculasJson);
-    }
 
+        public void Exportar(string ruta, ObservableCollection<Pelicula> lista)
+        {
+            string peliculasJson = JsonConvert.SerializeObject(lista);
+            File.WriteAllText(ruta, peliculasJson);
+        }
+        public ObservableCollection<Pelicula> Importar(string ruta)
+        {
+            string peliculasJson = File.ReadAllText(ruta);
+            return JsonConvert.DeserializeObject<ObservableCollection<Pelicula>>(peliculasJson);
+        }
+    }
 }
+
 

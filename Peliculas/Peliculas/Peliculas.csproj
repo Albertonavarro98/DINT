@@ -134,5 +134,32 @@
   <ItemGroup>
     <Resource Include="Recursos\img\40.png" />
   </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Recursos\img\128.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Recursos\img\film.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Recursos\img\film2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Recursos\img\film2.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Recursos\generos\comedia.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Recursos\generos\Accion.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Recursos\generos\drama.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Recursos\generos\scyfy.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Recursos\generos\terror.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
