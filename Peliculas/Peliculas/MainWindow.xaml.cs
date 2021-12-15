@@ -36,6 +36,13 @@ namespace Peliculas
             vm.Avanzar();
         }
 
-
+        private void ComprobarButton_Click(object sender, RoutedEventArgs e)
+        {
+            if (vm.PeliculaActual.Titulo.Equals(EntradaText.Text)) 
+            {
+                vm.IncrementarPuntuacion();
+            
+            }
+        }
     }
 }

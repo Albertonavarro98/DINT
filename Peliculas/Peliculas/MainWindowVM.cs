@@ -13,7 +13,13 @@ namespace Peliculas
         JsonService serviciojson = new JsonService();
         
         private Pelicula peliculaActual;
+        public Partida partidaActual;
 
+        public Partida PartidaActual
+        {
+            get { return partidaActual; }
+            set { SetProperty(ref partidaActual, value); }
+        }
         public Pelicula PeliculaActual
         {
             get { return peliculaActual; }
@@ -31,13 +37,40 @@ namespace Peliculas
         public MainWindowVM()
         {
             peliculas = serviciojson.Importar("../../Datos/peliculas.json");
-            Partida partida = new Partida();
+            ObservableCollection<Pelicula> peliculasAcertadas = new ObservableCollection<Pelicula>();
+            Partida PartidaActual = new Partida();
+            PartidaActual.Puntuacion = 0;
+            PartidaActual.PeliculasPartida = peliculas;
+            PartidaActual.PeliculasAcertadas = peliculasAcertadas;
             PosicionActual = 1;
             Totalpelis = peliculas.Count();
             PeliculaActual = Peliculas[PosicionActual - 1];
+
+        }
+
+        public void IncrementarPuntuacion() 
+        {
+            PartidaActual.Puntuacion++;
         }
 
         public string[] generos = new string[] { "Comedia", "Drama" , "Acción", "Terror", "Ciencia-Ficción" };
+
+        public string[] niveles = new string[] { "Difícil", "Fácil", "Medio" };
+
+        public string[] Niveles
+        {
+            get { return niveles; }
+            set { SetProperty(ref niveles, value); }
+        }
+
+
+        private Pelicula peliSeleccionada;
+
+        public Pelicula PeliSeleccionada
+        {
+            get { return peliSeleccionada; }
+            set{ SetProperty(ref peliSeleccionada, value); }
+        }
 
         public string[] Generos
         {
