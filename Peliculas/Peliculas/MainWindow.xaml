@@ -19,8 +19,34 @@
                 </DockPanel>
             </Border>
         </DataTemplate>
+        <Style TargetType="Label" x:Key="GeneroPista">
+            <Style.Triggers>
+                <DataTrigger  Binding="{Binding ElementName=VisibilidadCheckBox, Path=IsChecked}" Value="True">
+                    <Setter Property="Visibility" Value="Visible"></Setter>
+                </DataTrigger>
+                <DataTrigger  Binding="{Binding ElementName=VisibilidadCheckBox, Path=IsChecked}" Value="False">
+                    <Setter Property="Visibility" Value="Collapsed"></Setter>
+                </DataTrigger>
+            </Style.Triggers>
+        </Style>
+        <Style x:Key="CheckedStyle" TargetType="CheckBox">
+            <Style.Triggers>
+                <DataTrigger  Binding="{Binding ElementName=VisibilidadCheckBox, Path=IsChecked}" Value="True">
+                    <Setter Property="IsEnabled" Value="False"></Setter>
+                </DataTrigger>
+                <DataTrigger  Binding="{Binding ElementName=VisibilidadCheckBox, Path=IsChecked}" Value="False">
+                    <Setter Property="IsEnabled" Value="True"></Setter>
+                </DataTrigger>
+            </Style.Triggers>
+        </Style>
         <Style TargetType="Image" x:Key="GeneroImagen">
             <Style.Triggers>
+                <DataTrigger Binding="{Binding ElementName=VisibilidadCheckBox, Path=IsChecked}" Value="True">
+                    <Setter Property="Visibility" Value="Visible"></Setter>
+                </DataTrigger>
+                <DataTrigger  Binding="{Binding ElementName=VisibilidadCheckBox, Path=IsChecked}" Value="False">
+                    <Setter Property="Visibility" Value="Collapsed"></Setter>
+                </DataTrigger>
                 <DataTrigger Binding="{Binding Path=PeliculaActual.Genero}" Value="Terror">
                     <Setter Property="Source" Value="/Recursos/generos/terror.png"/>
                 </DataTrigger>
@@ -75,17 +101,17 @@
                                 <ColumnDefinition></ColumnDefinition>
                             </Grid.ColumnDefinitions>
                             <DockPanel Grid.Row="2" Grid.ColumnSpan="3">
-                                <CheckBox x:Name="VisibilidadCheckBox" DockPanel.Dock="Top" Margin="5 10 10 0">Ver pista</CheckBox>
+                                <CheckBox Style="{StaticResource CheckedStyle}" x:Name="VisibilidadCheckBox" DockPanel.Dock="Top" Margin="5 10 10 0">Ver pista</CheckBox>
                                 <DockPanel DockPanel.Dock="Bottom" Visibility="Visible">
-                                    <Label DockPanel.Dock="Bottom" x:Name="NombrePista" HorizontalAlignment="Center" Content="{Binding Path=PeliculaActual.Genero}"></Label>
-                                    <Image MinHeight="50" MinWidth="50" Style="{StaticResource GeneroImagen}"></Image>
+                                    <Label Style="{StaticResource GeneroPista}" DockPanel.Dock="Bottom" x:Name="NombrePista" HorizontalAlignment="Center" Content="{Binding Path=PeliculaActual.Genero}"></Label>
+                                    <Image x:Name="PistaImagen" MinHeight="50" MinWidth="50" Style="{StaticResource GeneroImagen}"></Image>
                                 </DockPanel>
                             </DockPanel>
                             <Viewbox  Grid.Row="0" Grid.Column="0" Margin="10 5 5 20" >
                                 <DockPanel HorizontalAlignment="Left">
                                     <Label DockPanel.Dock="Top">Puntuación</Label>
                                     <Border BorderBrush="Black" BorderThickness="1" CornerRadius="2" DockPanel.Dock="Bottom">
-                                        <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" Padding="2.5" Text="{Binding Path=PartidaActual.Puntuacion}">0</TextBlock>
+                                        <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" Padding="2.5" Text="{Binding Path=PartidaActual.Puntuacion}"></TextBlock>
                                     </Border>
                                 </DockPanel>
 
@@ -104,7 +130,10 @@
                         </Grid>
                     </Border>
                     <Border DockPanel.Dock="Left" BorderThickness="1" BorderBrush="LightGray" Grid.Column="0">
-                        <Viewbox Margin="5">
+                        <Viewbox x:Name="ImagenPeli" Margin="5">
+                            <Viewbox.Effect>
+                                <BlurEffect Radius="20"/>
+                            </Viewbox.Effect>
                             <Image Source="{Binding Path=PeliculaActual.Cartel}" Stretch="Uniform">
 
                             </Image>
@@ -123,22 +152,22 @@
                         <ColumnDefinition/>
                     </Grid.ColumnDefinitions>
                     <Label VerticalAlignment="Center"  Margin="05 05 0 05" Grid.Column="0">Nivel de Dificultad</Label>
-                    <ComboBox VerticalAlignment="Center"  Grid.Column="1" HorizontalAlignment="Center" Width="150" ItemsSource="{Binding Path=Niveles}" SelectedItem="{Binding Path=PeliSeleccionada.Niveles}">aaaa</ComboBox>
+                    <ComboBox x:Name="DificultadCB" VerticalAlignment="Center"  Grid.Column="1" HorizontalAlignment="Center" Width="150" ItemsSource="{Binding Path=Niveles}"  SelectedItem="{Binding Path=PeliSeleccionada.Nivel}"></ComboBox>
                     <StackPanel Grid.Column="2" Orientation="Horizontal" VerticalAlignment="Center">
                         <Label>Género</Label>
-                        <ComboBox Width="120" VerticalAlignment="Center" ItemsSource="{Binding Path=Generos}" SelectedItem="{Binding Path=PeliSeleccionada.Genero}"></ComboBox>
+                        <ComboBox x:Name="GeneroTB" Width="120" VerticalAlignment="Center" ItemsSource="{Binding Path=Generos}" SelectedItem="{Binding Path=PeliSeleccionada.Genero}"></ComboBox>
                     </StackPanel>
                 </Grid>
                 <DockPanel DockPanel.Dock="Right">
                     <StackPanel Margin="5" DockPanel.Dock="Top">
-                        <Button Height="21" Width="120" Margin="5">Cargar JSON</Button>
-                        <Button Height="21" Width="120" Margin="5">Guardar JSON</Button>
+                        <Button Click="CargarJSONButton_Click"  x:Name="CargarJSONButton" Height="21" Width="120" Margin="5">Cargar JSON</Button>
+                        <Button Click="GuardarJSONButton_Click" x:Name="GuardarJSONButton" Height="21" Width="120" Margin="5">Guardar JSON</Button>
                     </StackPanel>
-                    <Button DockPanel.Dock="Bottom" Margin="10 0 010 017">Examinar</Button>
+                    <Button Click="ExaminarButton_Click" x:Name="ExaminarButton" DockPanel.Dock="Bottom" Margin="10 0 010 017">Examinar</Button>
                     <StackPanel Margin="5">
-                        <Button Height="21" Width="120" Margin="5">Añadir Película</Button>
-                        <Button Height="21" Width="120" Margin="5">Editar Película</Button>
-                        <Button Height="21" Width="120" Margin="5">Elimiar Película</Button>
+                        <Button Click="AñadirPeliculaButton_Click" x:Name="AñadirPeliculaButton" Height="21" Width="120" Margin="5">Añadir Película</Button>
+                        <Button Click="EditarPeliculaButton_Click" x:Name="EditarPeliculaButton" Height="21" Width="120" Margin="5">Editar Película</Button>
+                        <Button Click="EliminarPeliculaButton_Click" x:Name="EliminarPeliculaButton" Height="21" Width="120" Margin="5">Elimiar Película</Button>
                     </StackPanel>
                 </DockPanel>
                 <Grid DockPanel.Dock="Bottom" Margin="10">
@@ -154,13 +183,13 @@
                         <RowDefinition/>
                     </Grid.RowDefinitions>
                     <Label Grid.Row="0" Margin="0 05 0 05" Grid.Column="0">Título de la película</Label>
-                    <TextBox Grid.Row="0" Grid.Column="1" Grid.ColumnSpan="2" Margin="0 05 0 05"  Text="{Binding Path=PeliSeleccionada.Titulo}"></TextBox>
+                    <TextBox x:Name="TituloTB" Grid.Row="0" Grid.Column="1" Grid.ColumnSpan="2" Margin="0 05 0 05"  Text="{Binding Path=PeliSeleccionada.Titulo}"></TextBox>
                     <Label Margin="0 05 0 05" Grid.Row="1" Grid.Column="0">Pista de la película</Label>
-                    <TextBox Grid.Row="1" Margin="0 05 0 05" Grid.Column="1" Grid.ColumnSpan="2"  Text="{Binding Path=PeliSeleccionada.Pista}"></TextBox>
+                    <TextBox x:Name="PistaTB" Grid.Row="1" Margin="0 05 0 05" Grid.Column="1" Grid.ColumnSpan="2"  Text="{Binding Path=PeliSeleccionada.Pista}"></TextBox>
                     <Label Margin="0 05 0 05" Grid.Row="3" Grid.Column="0" >Imágen de la película</Label>
-                    <TextBox Grid.Row="3" Margin="0 05 0 05" Grid.Column="1" Grid.ColumnSpan="2"  Text="{Binding Path=PeliSeleccionada.Cartel}"></TextBox>
+                    <TextBox x:Name="ImagenTB" Grid.Row="3" Margin="0 05 0 05" Grid.Column="1" Grid.ColumnSpan="2"  Text="{Binding Path=PeliSeleccionada.Cartel}"></TextBox>
                 </Grid>
-                <ListBox x:Name="ListaPlatos" ScrollViewer.VerticalScrollBarVisibility="Visible" ItemTemplate="{StaticResource PlantillaPeli}" ScrollViewer.HorizontalScrollBarVisibility="Disabled" Margin="10" SelectedItem="{Binding Path=PeliSeleccionada}" ItemsSource="{Binding Path=Peliculas}"  >
+                <ListBox ScrollViewer.VerticalScrollBarVisibility="Visible" ItemTemplate="{StaticResource PlantillaPeli}" ScrollViewer.HorizontalScrollBarVisibility="Disabled" Margin="10" SelectedItem="{Binding Path=PeliSeleccionada}" ItemsSource="{Binding Path=Peliculas}"  >
                     <ListBox.ItemsPanel>
                         <ItemsPanelTemplate>
                             <WrapPanel Orientation="Horizontal"></WrapPanel>

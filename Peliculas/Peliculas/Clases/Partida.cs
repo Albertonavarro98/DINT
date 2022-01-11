@@ -32,14 +32,13 @@ namespace Peliculas
             set { SetProperty(ref peliculasAcertadas, value); }
         }
 
-        public Partida() { }
-
-        public Partida(int Puntuacion, ObservableCollection<Pelicula> peliculasPartida, ObservableCollection<Pelicula> peliculasAcertadas)
+        public Partida(int _Puntuacion, ObservableCollection<Pelicula> _peliculasPartida, ObservableCollection<Pelicula> _peliculasAcertadas)
         {
-            puntuacion = Puntuacion;
-            this.peliculasPartida = peliculasPartida;
-            this.peliculasAcertadas = peliculasAcertadas;
+            puntuacion = _Puntuacion;
+            this.peliculasPartida = _peliculasPartida;
+            this.peliculasAcertadas = _peliculasAcertadas;
         }
+        
     }
 
 }

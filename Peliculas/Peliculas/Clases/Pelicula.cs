@@ -33,6 +33,17 @@ namespace Peliculas
         }
 
         private string genero;
+
+        public Pelicula(string titulo, string pista, string cartel, string nivel, string genero)
+        {
+            this.titulo = titulo;
+            this.pista = pista;
+            this.cartel = cartel;
+            this.nivel = nivel;
+            this.genero = genero;
+        }
+        public Pelicula()
+        { }
         public string Genero
         {
             get { return genero; }

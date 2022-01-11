@@ -10,8 +10,9 @@ namespace Peliculas
 {
     class MainWindowVM : ObservableObject
     {
-        JsonService serviciojson = new JsonService();
-        
+        readonly JsonService serviciojson = new JsonService();
+        OpenFileDialogMultipleFilesSample dialogo = new OpenFileDialogMultipleFilesSample();
+
         private Pelicula peliculaActual;
         public Partida partidaActual;
 
@@ -36,21 +37,18 @@ namespace Peliculas
 
         public MainWindowVM()
         {
-            peliculas = serviciojson.Importar("../../Datos/peliculas.json");
+            peliculas = serviciojson.Importar("C:/Users/alumno/source/repos/Peliculas/Peliculas/Datos/peliculas.json");
             ObservableCollection<Pelicula> peliculasAcertadas = new ObservableCollection<Pelicula>();
-            Partida PartidaActual = new Partida();
-            PartidaActual.Puntuacion = 0;
-            PartidaActual.PeliculasPartida = peliculas;
-            PartidaActual.PeliculasAcertadas = peliculasAcertadas;
+            PartidaActual = new Partida(0, peliculas, peliculasAcertadas);
             PosicionActual = 1;
             Totalpelis = peliculas.Count();
             PeliculaActual = Peliculas[PosicionActual - 1];
 
         }
 
-        public void IncrementarPuntuacion() 
+        public void IncrementarPuntuacion(int sumador)
         {
-            PartidaActual.Puntuacion++;
+            PartidaActual.Puntuacion = PartidaActual.Puntuacion + sumador;
         }
 
         public string[] generos = new string[] { "Comedia", "Drama" , "Acción", "Terror", "Ciencia-Ficción" };
@@ -61,6 +59,16 @@ namespace Peliculas
         {
             get { return niveles; }
             set { SetProperty(ref niveles, value); }
+        }
+
+        public void Guardar() 
+        {
+            serviciojson.Exportar(dialogo.SaveDialog(), peliculas);
+        }
+
+        public void Importar() 
+        {
+            serviciojson.Importar(dialogo.OpenDialog());
         }
 
 
@@ -81,7 +89,7 @@ namespace Peliculas
         private int totalpelis;
         private int posicionActual;
 
-        public int PosicionActual { get => posicionActual; set { SetProperty(ref posicionActual, value); ; } }
+        public int PosicionActual { get => posicionActual; set { SetProperty(ref posicionActual, value); } }
         public int Totalpelis { get => totalpelis; set { SetProperty(ref totalpelis, value); } }
         public void Avanzar() { if (PosicionActual < Totalpelis) { PosicionActual++; PeliculaActual = Peliculas[PosicionActual - 1]; } }
         public void Retroceder() { if (PosicionActual > 1) { PosicionActual--; PeliculaActual = Peliculas[PosicionActual - 1]; } }

@@ -7,7 +7,7 @@ namespace Peliculas
 {
     public partial class OpenFileDialogMultipleFilesSample
     {
-        private string OpenDialog()
+        public string OpenDialog()
         {
             OpenFileDialog openFileDialog = new OpenFileDialog();
             openFileDialog.Filter = "Json files (*.json)|*.json|All files (*.*)|*.*";
@@ -18,7 +18,7 @@ namespace Peliculas
             return null;
         }
 
-        private string SaveDialog(object sender, RoutedEventArgs e)
+        public string SaveDialog()
         {
             SaveFileDialog saveFileDialog = new SaveFileDialog();
             if (saveFileDialog.ShowDialog() == true)
