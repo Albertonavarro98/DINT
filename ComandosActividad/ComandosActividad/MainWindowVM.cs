@@ -18,7 +18,7 @@ namespace ComandosActividad
         public RelayCommand AbrirListaPersonaCommand { get; }
 
         public RelayCommand AbrirAñadirNacionalidadCommand { get; }
-        private ServicioNavegacion sn;
+        private readonly ServicioNavegacion sn;
 
         public UserControl Actual
         {
@@ -28,10 +28,10 @@ namespace ComandosActividad
 
         public MainWindowVM()
         {
+            sn = new ServicioNavegacion();
             AbrirAñadirNacionalidadCommand = new RelayCommand(Abrir_AñadirNacionalidad);
             AbrirAñadirPersonaCommand = new RelayCommand(Abrir_AñadirPersona);
             AbrirListaPersonaCommand = new RelayCommand(Abrir_ListaPersona);
-            sn = new ServicioNavegacion();
         }
 
         private void Abrir_AñadirNacionalidad()
@@ -47,5 +47,4 @@ namespace ComandosActividad
             actual = sn.AbrirNuevaPersona();
         }
     }
-}
 }

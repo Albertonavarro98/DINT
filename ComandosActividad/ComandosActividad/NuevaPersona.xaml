@@ -6,7 +6,16 @@
              xmlns:local="clr-namespace:ComandosActividad"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
-    <Grid>
-            
-    </Grid>
+    <StackPanel Background="White">
+        <Label Margin="10 10 10 0">Nombre</Label>
+        <TextBox  Margin="10 0 10 0"></TextBox>
+        <Label Margin="10 10 10 0"> Edad</Label>
+        <TextBox Margin="10 0 10 0"></TextBox>
+        <Label Margin="10 10 10 0">Nacionalidad</Label>
+        <StackPanel HorizontalAlignment="Left" Orientation="Horizontal">
+            <ComboBox Margin="10 0 10 10" Width="125"></ComboBox>
+            <Button Margin="0 0 0 10" FontSize="15" Height="25" Width="25" HorizontalAlignment="Center" VerticalAlignment="Center">+</Button>
+        </StackPanel>
+        <Button Width="125">Aceptar</Button>
+    </StackPanel>
 </UserControl>

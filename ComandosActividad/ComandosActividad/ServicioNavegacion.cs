@@ -10,7 +10,7 @@ namespace ComandosActividad
     {
         public void AbrirVentanaNuevaNacionalidad()
         {
-            AgregarNacionalidad an = new AgregarNacionalidad();
+            AñadirNacionalidad an = new AñadirNacionalidad();
             an.ShowDialog();
         }
 

@@ -10,7 +10,6 @@ namespace ComandosActividad
 {
     class ListaPersonasVM : ObservableObject
     {
-        private PersonaService PS;
         private ObservableCollection<Persona> personas;
         private ObservableCollection<string> personasTexto;
 
@@ -28,7 +27,7 @@ namespace ComandosActividad
 
         public ListaPersonasVM()
         {
-            PS = new PersonaService();
+            PersonaService PS = new PersonaService();
             personas = PS.GetPersonaLista();
             personasTexto = PS.CargarPersonasTexto();
         }

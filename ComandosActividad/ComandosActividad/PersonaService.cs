@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.Toolkit.Mvvm.ComponentModel;
+using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
@@ -7,15 +8,14 @@ using System.Threading.Tasks;
 
 namespace ComandosActividad
 {
-    class PersonaService : ObservableCollection
+    class PersonaService : ObservableObject
     {
         public ObservableCollection<Persona> personaLista;
         public ObservableCollection<Nacionalidad> nacionalidadLista;
-        public NacionalidadService NS;
 
         public ObservableCollection<Persona> GetPersonaLista()
         {
-            nacionalidadLista = NS.GetNacionalidadLista();
+            nacionalidadLista = new NacionalidadService().GetNacionalidadLista();
             personaLista = new ObservableCollection<Persona>();
             personaLista.Add(new Persona("paco", 15, nacionalidadLista[3]));
             personaLista.Add(new Persona("pedro", 35, nacionalidadLista[2]));

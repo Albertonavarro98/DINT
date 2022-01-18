@@ -34,6 +34,9 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>Img\personas.ico</ApplicationIcon>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="Microsoft.Bcl.AsyncInterfaces, Version=5.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.Bcl.AsyncInterfaces.5.0.0\lib\net461\Microsoft.Bcl.AsyncInterfaces.dll</HintPath>
@@ -86,10 +89,8 @@
     <Compile Include="Nacionalidad.cs" />
     <Compile Include="NacionalidadService.cs" />
     <Compile Include="NuevaPersonaVM.cs" />
-    <Compile Include="ObservableCollection.cs" />
     <Compile Include="Persona.cs" />
     <Compile Include="PersonaService.cs" />
-    <Compile Include="RelayCommand.cs" />
     <Compile Include="ServicioNavegacion.cs" />
     <Page Include="AñadirNacionalidad.xaml">
       <SubType>Designer</SubType>

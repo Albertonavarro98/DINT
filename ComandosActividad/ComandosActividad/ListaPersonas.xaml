@@ -13,7 +13,7 @@
             </StackPanel>
         </DataTemplate>
     </UserControl.Resources>
-    <Border BorderBrush="LightGray" BorderThickness="1">
+    <Border BorderBrush="LightGray" BorderThickness="1" Background="White">
         <ListBox Margin="10" HorizontalAlignment="Center" VerticalAlignment="Top" ItemTemplate="{StaticResource PlantillaPersona}"  ItemsSource="{Binding Path=Personas}">
             <ListBox.ItemsPanel>
                 <ItemsPanelTemplate>
