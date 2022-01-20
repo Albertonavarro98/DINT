@@ -4,10 +4,10 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{D2ACE4A9-208F-48D5-9568-4FAFF19CCA7E}</ProjectGuid>
+    <ProjectGuid>{29F8556A-8838-4AF9-A3E4-51BCCD290CDA}</ProjectGuid>
     <OutputType>WinExe</OutputType>
-    <RootNamespace>ComandosActividad</RootNamespace>
-    <AssemblyName>ComandosActividad</AssemblyName>
+    <RootNamespace>Personas</RootNamespace>
+    <AssemblyName>Personas</AssemblyName>
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <ProjectTypeGuids>{60dc8134-eba5-43b8-bcc9-bb4bc16c2548};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
@@ -35,7 +35,7 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <PropertyGroup>
-    <ApplicationIcon>Img\personas.ico</ApplicationIcon>
+    <ApplicationIcon>assets\personas.ico</ApplicationIcon>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Microsoft.Bcl.AsyncInterfaces, Version=5.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
@@ -84,23 +84,26 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="AñadirNacionalidadVM.cs" />
-    <Compile Include="ListaPersonasVM.cs" />
-    <Compile Include="Mensajes.cs" />
-    <Compile Include="Nacionalidad.cs" />
-    <Compile Include="NacionalidadService.cs" />
-    <Compile Include="NuevaPersonaVM.cs" />
-    <Compile Include="Persona.cs" />
-    <Compile Include="PersonaService.cs" />
-    <Compile Include="ServicioNavegacion.cs" />
-    <Page Include="AñadirNacionalidad.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="ListaPersonas.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
+    <Compile Include="MainWindowVM.cs" />
+    <Compile Include="Mensajes\Mensajeria.cs" />
+    <Compile Include="servicios\NavigationService.cs" />
+    <Compile Include="servicios\PersonasService.cs" />
+    <Compile Include="vistamodelo\DialogoNacionalidadVM.cs" />
+    <Compile Include="vistamodelo\ListadoPersonasUserControlVM.cs" />
+    <Compile Include="vistamodelo\NuevaPersonaUserControlVM.cs" />
+    <Compile Include="vistamodelo\PersonaVerDatosVM.cs" />
+    <Compile Include="vistas\DialogoNacionalidad.xaml.cs">
+      <DependentUpon>DialogoNacionalidad.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="vistas\ListadoPersonasUserControl.xaml.cs">
+      <DependentUpon>ListadoPersonasUserControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="vistas\NuevaPersonaUserControl.xaml.cs">
+      <DependentUpon>NuevaPersonaUserControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="vistas\PersonaVerDatos.xaml.cs">
+      <DependentUpon>PersonaVerDatos.xaml</DependentUpon>
+    </Compile>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -109,26 +112,29 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="AñadirNacionalidad.xaml.cs">
-      <DependentUpon>AñadirNacionalidad.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="ListaPersonas.xaml.cs">
-      <DependentUpon>ListaPersonas.xaml</DependentUpon>
-    </Compile>
     <Compile Include="MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Page Include="NuevaPersona.xaml">
+    <Page Include="vistas\DialogoNacionalidad.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="vistas\ListadoPersonasUserControl.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="vistas\NuevaPersonaUserControl.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="vistas\PersonaVerDatos.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="MainWindowVM.cs" />
-    <Compile Include="NuevaPersona.xaml.cs">
-      <DependentUpon>NuevaPersona.xaml</DependentUpon>
-    </Compile>
+    <Compile Include="modelo\Persona.cs" />
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -156,8 +162,8 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Img\añadir.ico" />
-    <Resource Include="Img\personas.ico" />
+    <Resource Include="assets\add.ico" />
+    <Resource Include="assets\personas.ico" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
