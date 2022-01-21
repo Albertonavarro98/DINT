@@ -1,41 +1,45 @@
 ﻿using Microsoft.Toolkit.Mvvm.ComponentModel;
 using Microsoft.Toolkit.Mvvm.Messaging;
-using Personas.Mensajes;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Text;
 
-namespace Personas
+namespace PersonasMensajes
 {
     class ListadoPersonasUserControlVM : ObservableObject
     {
-        private PersonasService servicioPersonas;
-        
+        private readonly PersonasService servicioPersonas;
+
         private ObservableCollection<Persona> listaPersonas;
 
+        public ObservableCollection<Persona> ListaPersonas
+        {
+            get { return listaPersonas; }
+            set { SetProperty(ref listaPersonas, value); }
+        }
+
         private Persona personaSeleccionada;
-        
+
         public Persona PersonaSeleccionada
         {
             get { return personaSeleccionada; }
             set { SetProperty(ref personaSeleccionada, value); }
         }
 
-        public ObservableCollection<Persona> ListaPersonas
-        {
-            get { return listaPersonas; }
-            set { listaPersonas = value; }
-        }
-
         public ListadoPersonasUserControlVM()
         {
             servicioPersonas = new PersonasService();
             ListaPersonas = servicioPersonas.ObtenerPersonas();
-            WeakReferenceMessenger.Default.Register<ListadoPersonasUserControlVM, MensajePersonaSeleccionada>
-            (this, (r, m) =>
+            WeakReferenceMessenger.Default.Register<NuevaPersonaMessage>(this, (r, m) =>
             {
-                m.Reply(r.PersonaSeleccionada); 
+                ListaPersonas.Add(m.Value);
+            });
+
+            WeakReferenceMessenger.Default.Register<ListadoPersonasUserControlVM, PersonaSeleccionadaMessage>(this, (r, m) =>
+            {
+                if (!m.HasReceivedResponse)
+                    m.Reply(PersonaSeleccionada);
             });
         }
     }
